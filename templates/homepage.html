@@ -7,24 +7,27 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='style.css') }}" />
-      <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-      <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script>
-      <title>Capstone</title>
-  </head>
-  <body>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <title>Capstone</title>
+</head>
+
+<body>
     <h1>RTT Network</h1>
     <nav>
-      <button id="search">News Search</button>
-      <button id="weather">Weather</button>
-      <button id="chuck">Chuck Norris</button>
-      <button id="nasa">NASA</button>
-      <button id="goog">Google</button>
+        <button id="search">News Search</button>
+        <button id="weather">Weather</button>
+        <button id="chuck">Chuck Norris</button>
+        <button id="nasa">NASA</button>
+        <button id="goog">Google</button>
     </nav>
     <br>
     <iframe src="{{iframe_src}}"></iframe>
 
-  </body>
+</body>
+
 </html>
