@@ -1,7 +1,23 @@
 body {
     text-align: center;
-    background-image: linear-gradient(to right, #ffe6e6,#fff6e6,#ffffe6,#e6ffe6,#e6e6ff,#f4e6ff,#fce9fc);
+    /* background-image: linear-gradient(to right, #ffe6e6,#fff6e6,#ffffe6,#e6ffe6,#e6e6ff,#f4e6ff,#fce9fc); */
     font-family: 'Open Sans', sans-serif;
+}
+
+nav a {
+  color: rgb(29, 51, 84);
+  padding: 30px;
+  padding-bottom: 4px;
+  font-size: 1em;
+  text-decoration: none; 
+}
+
+nav a:hover {
+  color: rgb(70, 117, 153);
+  padding: 30px;
+  padding-bottom: 4px;
+  font-size: 1.1em;
+  text-decoration: none;
 }
 
 .iframe-body {
@@ -27,9 +43,7 @@ p {
   color: #334;
 }
 
-a {
-  text-decoration: none;
-}
+
 
 img {
     border-radius: 20px;

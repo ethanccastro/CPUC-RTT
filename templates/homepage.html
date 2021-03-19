@@ -10,20 +10,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <link href="../static/style.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script> -->
     <title>Capstone</title>
 </head>
 
 <body>
-    <h1>RTT Network</h1>
+    <!-- <h1>RTT Network</h1> -->
+
+    <header>
+        <a href="homepage.html">
+            <img src="../static/images/logo.PNG" height="100">
+        </a>
+    </header>
+
     <nav>
-        <button id="search">News Search</button>
-        <button id="weather">Weather</button>
-        <button id="chuck">Chuck Norris</button>
-        <button id="nasa">NASA</button>
-        <button id="goog">Google</button>
+        <hr width="50%">
+        <a href="westRTT.html"> West Average RTT </a>
+        <a href="westTCP.html"> West TCP </a>
+        <a href="eastRTT.html"> East Average RTT </a>
+        <a href="eastTCP.html"> East TCP </a>
     </nav>
     <br>
     <iframe src="{{iframe_src}}"></iframe>
