@@ -10,11 +10,11 @@ import math
 
 import mpld3
 
-
 # init app
 app = Flask(__name__)
 #app.config['SECRET_KEY'] = 'csumb-otter'
 
+'''
 df = pd.read_csv('data/MainDataFrame.csv')
 
 # replaces rows where TCP has no connection with 0
@@ -106,6 +106,8 @@ plt.ylabel('Avg RTT')
 plt.title('Avg RTT from 2015-2020')
 
 plt.savefig('static/images/linearPlotAvgRTT-2015-2020.png')
+'''
+
 
 '''
 html_str = mpld3.fig_to_html(fig)
@@ -114,12 +116,32 @@ Html_file.write(html_str)
 Html_file.close()
 '''
 
-plt.show()
+#plt.show()
 
 # default route -- homepage
 @app.route('/')
 def default():
-    return render_template('old.html')
+    return render_template('homepage.html')
+
+
+@app.route('/westRTT')
+def westRtt():
+    return render_template('westRTT.html')
+
+
+@app.route('/westTCP')
+def westTCP():
+    return render_template('westTCP.html')
+
+
+@app.route('/eastRTT')
+def eastRtt():
+    return render_template('eastRTT.html')
+
+
+@app.route('/eastTCP')
+def eastTCP():
+    return render_template('eastTCP.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
