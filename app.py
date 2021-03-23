@@ -12,7 +12,6 @@ import mpld3
 
 # init app
 app = Flask(__name__)
-#app.config['SECRET_KEY'] = 'csumb-otter'
 
 '''
 df = pd.read_csv('data/MainDataFrame.csv')
