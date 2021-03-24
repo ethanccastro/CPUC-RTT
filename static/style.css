@@ -1,0 +1,41 @@
+/*** Navigation Bar ***/
+nav {
+    background-color: rgb(196, 252, 255);
+    font-family: 'Averia Serif Libre', cursive;
+}
+.rttNetwork {
+    /* puts rtt network title next to logo */
+    display: inline;
+    position: relative;
+    top: 20px;
+}
+.active {
+    font-weight: bolder;
+}
+
+/*** Image with Text ***/
+.img1 {
+    background-image: url("images/network.jpg");
+    min-height: 600px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.text .border {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
