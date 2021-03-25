@@ -13,6 +13,42 @@ nav {
     font-weight: bolder;
 }
 
+/*** Footer ***/
+
+.footer-center {
+  text-align: center;
+}
+
+.footer_background {
+   background-color: rgb(196, 252, 255);
+   font-family: 'Averia Serif Libre', cursive;
+}
+
+#footer-gradiant {
+  height: 100px;
+  background-color: rgb(196, 252, 255); /* doesn't do anything unless user doesn't have access to gradiant below */
+  background-image: linear-gradient(0deg, rgb(196, 252, 255), white);
+}
+
+.line-spacing {
+  line-height: 2.5;
+}
+
+.footer-anchor {
+  color: grey;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.footer-anchor:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.bottom-padding-filler {
+  padding-bottom: 100px;
+}
+
 /*** Image with Text ***/
 .img1 {
     background-image: url("images/network.jpg");
