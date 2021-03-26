@@ -1,7 +1,7 @@
 /*** Navigation Bar ***/
-nav {
-    background-color: rgb(196, 252, 255);
-    font-family: 'Averia Serif Libre', cursive;
+nav, footer {
+  background-color: rgb(196, 252, 255);
+  font-family: 'Averia Serif Libre', cursive;
 }
 .rttNetwork {
     /* puts rtt network title next to logo */
@@ -13,17 +13,37 @@ nav {
     font-weight: bolder;
 }
 
-/*** Footer ***/
-
-.footer-center {
+/*** Image with Text ***/
+.img1 {
+  background-image: url("images/network.jpg");
+  min-height: 600px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
   text-align: center;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+.text .border {
+  background-color: black;
+  color: white;
+  padding: 20px;
 }
 
-.footer_background {
-   background-color: rgb(196, 252, 255);
-   font-family: 'Averia Serif Libre', cursive;
-}
-
+/*** Footer ***/
+/* footer {
+  background-color: rgb(196, 252, 255);
+  font-family: 'Averia Serif Libre', cursive;
+} */
 #footer-gradiant {
   height: 100px;
   background-color: rgb(196, 252, 255); /* doesn't do anything unless user doesn't have access to gradiant below */
@@ -39,39 +59,12 @@ nav {
   text-decoration: none;
   background-color: transparent;
 }
-
 .footer-anchor:hover {
   color: black;
   text-decoration: underline;
 }
 
-.bottom-padding-filler {
+/* .bottom-padding-filler {
   padding-bottom: 100px;
-}
+} */
 
-/*** Image with Text ***/
-.img1 {
-    background-image: url("images/network.jpg");
-    min-height: 600px;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-.text {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-  font-size: 27px;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-}
-
-.text .border {
-  background-color: black;
-  color: white;
-  padding: 20px;
-}

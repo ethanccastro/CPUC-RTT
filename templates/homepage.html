@@ -9,25 +9,25 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
     <link href="../static/style.css" rel="stylesheet" type="text/css">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script> -->
-    <title> RTT Network - Homepage </title>
-
+    
     <!-- Font for RTT NETWORK -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap" rel="stylesheet">
+    
+    <title> RTT Network - Homepage </title>
 </head>
 
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand ms-4" href="/">
-            <img src="../static/images/logoCrop.png" width="10%">
+            <img src="../static/images/logoCrop.png" width="9%">
             <h2 class="rttNetwork"> RTT NETWORK </h2>
         </a>
         <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -64,72 +64,53 @@
         </div>
     </nav>
 
+    <!-- Intro Image -->
     <div class="img1">
         <div class="text">
             <span class="border"> RTT Network </span>
         </div>
     </div>
 
-    <br>
-    <!-- Not really needed -->
-    <iframe src="{{iframe_src}}"></iframe> 
-    <!--  -->
+    <!-- Main Content -->
+    <main>
+        <h1> Body Here </h1>
+    </main>
 
-    <footer class="footer-center footer_background">
-
-        <div id="footer-gradiant">
-            <br>
-
-            <!-- <hr style="width:50%"> DOES NOT CENTER FOR SOME REASON-->
-            
-            <br>
-        </div>
+    <!-- Footer -->
+    <footer class="text-center">
+        <div id="footer-gradiant"></div>
         
+        <img src="../static/images/logoCrop.png" width="4%">
+        <h2 class="rttNetwork"> RTT NETWORK </h2>
 
-        <div class="ms-4">
-            <img src="../static/images/logoCrop.png" width="4%">
-            <h2 class="rttNetwork"> RTT NETWORK </h2>
-        </div>
-
-        
-
-        <div class="line-spacing">
-            
-            Website Software Engineer Emails:
-
+        <div class="line-spacing pb-5">
+            Website Software Engineer Emails: 
             <br>
 
-            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> / <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> / <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> / <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
-            
+            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> / 
+            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> / 
+            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> / 
+            <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
             <br>
 
             Project Mentor:
-            
             <br>
             
             <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
-
             <br>
-
-            <!-- <strong>Disclaimer:</strong> Blah blah blah csumb and rtt website information -->
-            
-            <!-- <br> -->
 
             <span>
-                CSUMB
-                100 Campus Center, Seaside, CA 93955
-                (831) 582-3000
+                CSUMB <br>
+                100 Campus Center, Seaside, CA 93955 <br>
+                (831) 582-3000 <br>
             </span>
-
             <br>
 
-            <a href="https://csumb.edu/" class="footer-anchor">CSUMB Website</a> / <a href="#" class="footer-anchor">Some other thing here</a>
-
+            <a href="https://csumb.edu/" class="footer-anchor" target="_blank">CSUMB Website</a> / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a>
             <br>
-
         </div>
 
-        <div class="bottom-padding-filler"></div>
+        <!-- <div class="bottom-padding-filler"></div> -->
 
     </footer>
 
