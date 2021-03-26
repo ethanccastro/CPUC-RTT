@@ -13,6 +13,17 @@ nav, footer {
     font-weight: bolder;
 }
 
+@media only screen and (max-width: 1026px) {
+    #fadeWords {
+        display: none;
+    }
+
+    #growImage {
+      width: 20%;
+    }
+
+}
+
 /*** Image with Text ***/
 .img1 {
   background-image: url("images/network.jpg");
