@@ -1,8 +1,55 @@
 /*** Navigation Bar ***/
-nav, footer {
-  background-color: rgb(196, 252, 255);
+nav {
+  background-color: rgb(196, 252, 255, 0.4);
   font-family: 'Averia Serif Libre', cursive;
 }
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  transition: background-color 0.5s ease;
+}
+
+.navTextColor  {
+  color: white !important;
+  transition: color 0.5s ease;
+}
+
+.navLogoColorChange h2 {
+  color: white !important;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav .collapse a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 90%;
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  width: 0%;
+
+  transition: all ease-in-out 300ms;
+} /* These two classes are needed for the line above the navbar options to work and change color */
+nav .collapse a.toggleColor::before {
+  background-color: black;
+}
+
+nav .collapse a:hover::before {
+  width: 100%;
+}
+
 .rttNetwork {
     /* puts rtt network title next to logo */
     display: inline;
@@ -51,10 +98,11 @@ nav, footer {
 }
 
 /*** Footer ***/
-/* footer {
+footer {
   background-color: rgb(196, 252, 255);
   font-family: 'Averia Serif Libre', cursive;
-} */
+}
+
 #footer-gradiant {
   height: 100px;
   background-color: rgb(196, 252, 255); /* doesn't do anything unless user doesn't have access to gradiant below */
