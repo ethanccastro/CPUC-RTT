@@ -1,0 +1,160 @@
+<!--  Name: homepage.html
+      Group Members: Chuy Gomez, Jennifer Lopez, Eric Guerra, Ethan Castro
+      Date: 3/10/2021
+      Class: CST499
+      Description: East TCP page to display data for the capstone project
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script><meta charset="UTF-8">
+    <link href="../static/style.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script> -->
+    <title>RTT Network - East TCP</title>
+
+    <!-- Font for RTT NETWORK -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ms-4" href="/">
+            <img id="growImage" src="../static/images/logoCropInverted.png" width="9%">
+            <h2 class="rttNetwork" id="fadeWords"> RTT NETWORK </h2>
+        </a>
+        <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ms-5">
+                    <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a>
+                </li>
+                <li class="nav-item dropdown ms-5">
+                    <a class="nav-link dropdown-toggle navTextColor" href="/westTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West TCP </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 1 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Download 1 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 2 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Download 2 </a>
+                    </div>
+                </li>
+                <li class="nav-item ms-5">
+                    <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
+                </li>
+                <li class="nav-item dropdown ms-5">
+                    <a class="nav-link dropdown-toggle navTextColor" href="/eastTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East TCP </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 1 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 1 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 2 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 2 </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Intro Image -->
+    <div class="img1">
+        <div class="text">
+            <h1>East TCP</h1>
+        </div>
+    </div>
+
+    <br>
+    <iframe src="{{iframe_src}}"></iframe>
+
+    <footer class="text-center">
+        <!-- <div id="footer-gradiant"></div> -->
+    
+        <img src="../static/images/logoCropInverted.png" width="4%">
+        <h2 class="rttNetwork"> RTT NETWORK </h2>
+    
+        <br>
+        <br>
+    
+        <div class="line-spacing pb-5">
+            Website Software Engineer Emails:
+            <br>
+    
+            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> /
+            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> /
+            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> /
+            <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
+            <br>
+    
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-sm-4">
+                    </div>
+    
+                    <div class="col-sm-2">
+                        Project Mentor:
+                        <br>
+    
+                        <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
+                        <br>
+    
+                    </div>
+    
+                    <div class="col-sm-2 border-start border-dark">
+                        Sponsor:
+                        <br>
+    
+                        <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
+                        <br>
+                    </div>
+    
+                    <div class="col-sm-4">
+                    </div>
+    
+                </div>
+            </div>
+    
+            <span>
+                <a href="https://csumb.edu/" class="footer-anchor" target="_blank"> CSUMB </a>
+                <br>
+                100 Campus Center, Seaside, CA 93955 <br>
+                (831) 582-3000 <br>
+            </span>
+    
+    
+    
+            <!-- / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a> -->
+            <br>
+        </div>
+    
+        <!-- <div class="bottom-padding-filler"></div> -->
+    
+    </footer>
+    
+    <script>
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= 50) {
+                // NOT Transparent
+                $('.navbar').css('background', 'black');
+            } else {
+                // TRANSPARENT
+                $('.navbar').css('background', 'rgba(196, 252, 255, 0)');
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
