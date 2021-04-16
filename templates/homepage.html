@@ -25,8 +25,8 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand ms-4 navLogoColorChange" href="/">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ms-4" href="/">
             <img id="growImage" src="../static/images/logoCropInverted.png" width="9%">
             <h2 class="rttNetwork" id="fadeWords"> RTT NETWORK </h2>
         </a>
@@ -68,21 +68,26 @@
     <!-- Intro Image -->
     <div class="img1">
         <div class="text">
-            <span class="border"> RTT Network </span>
+            <h1>RTT Network</h1>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="text-center">
-        <h1> Nothing here at the moment... </h1>
+        <h2> Nothing here at the moment... </h2>
     </main>
+
+    <!-- <center><hr width="80%"></center> -->
 
     <!-- Footer -->
     <footer class="text-center">
-        <div id="footer-gradiant"></div>
+        <!-- <div id="footer-gradiant"></div> -->
         
-        <img src="../static/images/logoCrop.png" width="4%">
+        <img src="../static/images/logoCropInverted.png" width="4%">
         <h2 class="rttNetwork"> RTT NETWORK </h2>
+
+        <br>
+        <br>
 
         <div class="line-spacing pb-5">
             Website Software Engineer Emails: 
@@ -94,20 +99,45 @@
             <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
             <br>
 
-            Project Mentor:
-            <br>
-            
-            <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
-            <br>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-4">
+                    </div>
+
+                    <div class="col-sm-2">
+                        Project Mentor:
+                        <br>
+                        
+                        <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
+                        <br>
+
+                    </div>
+
+                    <div class="col-sm-2 border-start border-dark">
+                        Sponsor:
+                        <br>
+
+                        <a href="https://www.cpuc.ca.gov/" class="footer-anchor">CPUC</a>
+                        <br>
+                    </div>
+
+                    <div class="col-sm-4">
+                    </div>
+                    
+                </div>
+            </div>
 
             <span>
-                CSUMB <br>
+                <a href="https://csumb.edu/" class="footer-anchor" target="_blank"> CSUMB </a>
+                <br>
                 100 Campus Center, Seaside, CA 93955 <br>
                 (831) 582-3000 <br>
             </span>
-            <br>
+            
 
-            <a href="https://csumb.edu/" class="footer-anchor" target="_blank">CSUMB Website</a> / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a>
+            
+            <!-- / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a> -->
             <br>
         </div>
 
@@ -120,26 +150,10 @@
         $(window).scroll(function () {
                 if ($(window).scrollTop() >= 50) {
                     // NOT Transparent
-                    $('.navbar').css('background', 'rgba(196, 252, 255, 1)');
-                    // Changes text color to black when it is NOT transparent
-                    $('.navTextColor').attr('style', 'color: black !important');
-                    // Image turns black when nav bar is NOT transparent
-                    $('.navLogoColorChange img').attr('src', '../static/images/logoCrop.png')
-                    // RTT NETWORK turns black when nav bar is NOT transparent
-                    $('.navLogoColorChange h2').attr('style', 'color: black !important');
-                    // The line above the navbar options changes to grey when navbar is NOT transparent
-                    $('nav .collapse a').addClass('toggleColor');
+                    $('.navbar').css('background', 'black');
                 } else {
                     // TRANSPARENT
-                    $('.navbar').css('background', 'rgba(196, 252, 255, 0.4)');
-                    // Changes text color to white when transparent
-                    $('.navTextColor').attr('style', 'color: white !important');
-                    // Image turns white when nav bar is transparent
-                    $('.navLogoColorChange img').attr('src', '../static/images/logoCropInverted.png')
-                    // RTT NETWORK turns white when nav bar is transparent
-                    $('.navLogoColorChange h2').attr('style', 'color: white !important');
-                    // The line above the navbar options changes to white when navbar is transparent
-                    $('nav .collapse a').removeClass('toggleColor');
+                    $('.navbar').css('background', 'rgba(196, 252, 255, 0)');
                 }
             });
 
