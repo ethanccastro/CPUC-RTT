@@ -76,7 +76,62 @@
     
     <!-- Main Content -->
     <main>
-        <div class="container pt-5 pb-4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col p-5"></div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid p-0">
+            <div class="row text-center p-0">
+                <div class="col background-graph">
+                    
+                    <div class="scene scene--card">
+                        <div class="card">
+                            <img class="card__face card__face--front" src="../static/images/timePlotAvgRTT-2012-2020.png">
+                            <img class="card__face card__face--back" src="../static/images/timePlotAvgRTT-2012-2020.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <button id="buttonWRTT" class="btn btn-primary my-4 mx-5" type="button"> West Avg RTT </button>
+
+                    <button id="buttonWBoth" class="btn btn-primary my-4 mx-3" type="button"> West Avg RTT/TCP </button>
+
+                    <button id="buttonWTCP" class="btn btn-primary my-4 mx-5" type="button"> West TCP</button>
+
+                    <br>
+
+                    <button id="buttonERTT" class="btn btn-primary my-4 mx-5" type="button"> East Avg RTT </button>
+                    
+                    <button id="buttonEBoth" class="btn btn-primary my-4 mx-3" type="button"> East Avg RTT/TCP </button>
+                    
+                    <button id="buttonETCP" class="btn btn-primary my-4 mx-5" type="button"> East TCP</button>
+
+                    <hr>
+
+                    <h4> Time Plot Avg. RTT: 2012 - 2020 </h4>
+
+                    <h6>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h6>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col p-5"></div>
+            </div>
+        </div>
+
+<!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
+        <!-- <div class="container pt-5 pb-4">
             <div class="row text-center">
                 <div class="col-sm-6">
                     <img src="../static/images/linearPlotAvgRTT-2015-2020.png" width="80%">
@@ -90,7 +145,7 @@
                     <img src="../static/images/timePlotAvgRTT-2012-2020.png" width="85%">
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="text-center">
@@ -159,6 +214,31 @@
     </footer>
     
     <script>
+
+        function transitionFunc() {
+            var frontThing = document.querySelector('.card__face--front');
+            var backThing = document.querySelector('.card__face--back');
+            frontThing.classList.toggle('other');
+            backThing.classList.toggle('other');
+        }
+
+        function westRTTImageFunc() {
+            $('.card .card__face--front').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png')
+            $('.card .card__face--back').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png')
+            $('.col h4').attr('')
+        }
+
+        var card = document.querySelector('.card');
+        $("#buttonWRTT").click(function () {
+            card.classList.toggle('is-flipped');
+            setTimeout(westRTTImageFunc, 290);
+        });
+
+        // var card = document.querySelector('.card');
+        //     card.addEventListener('click', function () {
+        //         card.classList.toggle('is-flipped');
+        //         setTimeout(transitionFunc, 290);
+        // });
 
         $(window).scroll(function () {
             if ($(window).scrollTop() >= 50) {
