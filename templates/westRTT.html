@@ -85,7 +85,7 @@
 
 
         <div class="container-fluid p-0">
-            <div class="row text-center p-0">
+            <div class="row text-center p-0 m-0">
                 <div class="col background-graph">
                     
                     <div class="scene scene--card">
@@ -213,44 +213,7 @@
     
     </footer>
     
-    <script>
-
-        function transitionFunc() {
-            var frontThing = document.querySelector('.card__face--front');
-            var backThing = document.querySelector('.card__face--back');
-            frontThing.classList.toggle('other');
-            backThing.classList.toggle('other');
-        }
-
-        function westRTTImageFunc() {
-            $('.card .card__face--front').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png')
-            $('.card .card__face--back').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png')
-            $('.col h4').attr('')
-        }
-
-        var card = document.querySelector('.card');
-        $("#buttonWRTT").click(function () {
-            card.classList.toggle('is-flipped');
-            setTimeout(westRTTImageFunc, 290);
-        });
-
-        // var card = document.querySelector('.card');
-        //     card.addEventListener('click', function () {
-        //         card.classList.toggle('is-flipped');
-        //         setTimeout(transitionFunc, 290);
-        // });
-
-        $(window).scroll(function () {
-            if ($(window).scrollTop() >= 50) {
-                // NOT Transparent
-                $('.navbar').css('background', 'black');
-            } else {
-                // TRANSPARENT
-                $('.navbar').css('background', 'rgba(196, 252, 255, 0)');
-            }
-        });
-
-    </script>
+    <script src="../static/js/graphTransition.js"></script>
 
 </body>
 
