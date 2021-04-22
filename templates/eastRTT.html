@@ -14,9 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <link href="../static/style.css" rel="stylesheet" type="text/css">
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
-    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script> -->
+    
     <title>RTT Network - East Average RTT</title>
 
     <!-- Font for RTT NETWORK -->
@@ -78,8 +76,6 @@
     <iframe src="{{iframe_src}}"></iframe>
 
     <footer class="text-center">
-        <!-- <div id="footer-gradiant"></div> -->
-    
         <img src="../static/images/logoCropInverted.png" width="4%">
         <h2 class="rttNetwork"> RTT NETWORK </h2>
     
@@ -98,30 +94,21 @@
     
             <div class="container">
                 <div class="row">
-    
-                    <div class="col-sm-4">
-                    </div>
+                    <div class="col-sm-4"></div>
     
                     <div class="col-sm-2">
-                        Project Mentor:
-                        <br>
-    
+                        Project Mentor:<br>
                         <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
-                        <br>
-    
+                        <br>    
                     </div>
     
                     <div class="col-sm-2 border-start border-dark">
-                        Sponsor:
-                        <br>
-    
+                        Sponsor:<br>
                         <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
                         <br>
                     </div>
     
-                    <div class="col-sm-4">
-                    </div>
-    
+                    <div class="col-sm-4"></div>
                 </div>
             </div>
     
@@ -131,31 +118,11 @@
                 100 Campus Center, Seaside, CA 93955 <br>
                 (831) 582-3000 <br>
             </span>
-    
-    
-    
-            <!-- / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a> -->
             <br>
         </div>
-    
-        <!-- <div class="bottom-padding-filler"></div> -->
-    
     </footer>
     
-    <script>
-
-        $(window).scroll(function () {
-            if ($(window).scrollTop() >= 50) {
-                // NOT Transparent
-                $('.navbar').css('background', 'black');
-            } else {
-                // TRANSPARENT
-                $('.navbar').css('background', 'rgba(196, 252, 255, 0)');
-            }
-        });
-
-    </script>
-
+    <script src="../static/js/windowScroll.js"></script>
 </body>
 
 </html>

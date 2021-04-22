@@ -74,15 +74,17 @@
 
     <!-- Main Content -->
     <main class="text-center">
-        <h2> Nothing here at the moment... </h2>
+        <div class="topDiv">
+            <h1> top div </h1>
+            <div class="bottomDiv">
+                <h1> bottom div </h1>
+                <img src="../static/carrier/carrier 1.jpg"/>
+            </div>   
+         </div>
     </main>
-
-    <!-- <center><hr width="80%"></center> -->
 
     <!-- Footer -->
     <footer class="text-center">
-        <!-- <div id="footer-gradiant"></div> -->
-        
         <img src="../static/images/logoCropInverted.png" width="4%">
         <h2 class="rttNetwork"> RTT NETWORK </h2>
 
@@ -101,30 +103,21 @@
 
             <div class="container">
                 <div class="row">
-
-                    <div class="col-sm-4">
-                    </div>
+                    <div class="col-sm-4"></div>
 
                     <div class="col-sm-2">
-                        Project Mentor:
-                        <br>
-                        
+                        Project Mentor: <br>
                         <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
                         <br>
-
                     </div>
 
                     <div class="col-sm-2 border-start border-dark">
-                        Sponsor:
-                        <br>
-
+                        Sponsor:<br>
                         <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
                         <br>
                     </div>
 
-                    <div class="col-sm-4">
-                    </div>
-                    
+                    <div class="col-sm-4"></div>
                 </div>
             </div>
 
@@ -134,31 +127,11 @@
                 100 Campus Center, Seaside, CA 93955 <br>
                 (831) 582-3000 <br>
             </span>
-            
-
-            
-            <!-- / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a> -->
             <br>
         </div>
-
-        <!-- <div class="bottom-padding-filler"></div> -->
-
     </footer>
 
-    <script>
-
-        $(window).scroll(function () {
-                if ($(window).scrollTop() >= 50) {
-                    // NOT Transparent
-                    $('.navbar').css('background', 'black');
-                } else {
-                    // TRANSPARENT
-                    $('.navbar').css('background', 'rgba(196, 252, 255, 0)');
-                }
-            });
-
-    </script>
-
+    <script src="../static/js/windowScroll.js"></script>
 </body>
 
 </html>
