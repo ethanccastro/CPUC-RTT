@@ -1,13 +1,53 @@
 /*** Navigation Bar ***/
-nav, footer {
-  background-color: rgb(196, 252, 255);
+nav {
+  background-color: rgb(196, 252, 255, 0);
   font-family: 'Averia Serif Libre', cursive;
 }
+
+.navbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  transition: background-color 0.5s ease;
+}
+
+.navTextColor  {
+  color: white !important;
+  transition: color 0.5s ease;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav .collapse a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 90%;
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  width: 0%;
+
+  transition: all ease-in-out 300ms;
+} 
+
+nav .collapse a:hover::before {
+  width: 100%;
+}
+
 .rttNetwork {
     /* puts rtt network title next to logo */
     display: inline;
     position: relative;
     top: 20px;
+    color: white;
 }
 .active {
     font-weight: bolder;
@@ -26,13 +66,14 @@ nav, footer {
 
 /*** Image with Text ***/
 .img1 {
-  background-image: url("images/network.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(24, 48, 156, 0.8) 70%), url("images/network.jpg");
   min-height: 600px;
   position: relative;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  /* opacity: 0.7; */
 }
 .text {
   position: absolute;
@@ -48,17 +89,29 @@ nav, footer {
   background-color: black;
   color: white;
   padding: 20px;
+  border-color: black !important;
+}
+
+h1 {
+  color: white;
+  font-size: 100px;
+  /* text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; */
 }
 
 /*** Footer ***/
-/* footer {
-  background-color: rgb(196, 252, 255);
+footer {
+  /* background-color: rgb(196, 252, 255); */
+  /* background-color: lightgray; */
+  padding-top: 50px;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(12, 12, 12) 100%);
   font-family: 'Averia Serif Libre', cursive;
-} */
+  color: white;
+}
+
 #footer-gradiant {
   height: 100px;
-  background-color: rgb(196, 252, 255); /* doesn't do anything unless user doesn't have access to gradiant below */
-  background-image: linear-gradient(0deg, rgb(196, 252, 255), white);
+  /* background-color: rgb(196, 252, 255); doesn't do anything unless user doesn't have access to gradiant below */
+  /* background: linear-gradient(0deg, lightgray 0%, white 90%); */
 }
 
 .line-spacing {
@@ -66,16 +119,61 @@ nav, footer {
 }
 
 .footer-anchor {
-  color: grey;
+  color: grey !important;
   text-decoration: none;
   background-color: transparent;
 }
 .footer-anchor:hover {
-  color: black;
+  color: rgb(214, 214, 214) !important;
   text-decoration: underline;
 }
 
-/* .bottom-padding-filler {
-  padding-bottom: 100px;
-} */
+/** Graph web page **/
 
+.background-graph {
+  background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.9) 0%, rgba(70, 94, 201, 0.3) 70%), url("images/chart.jpg");
+}
+
+.scene {
+  width: 625px;
+  height: 260px;
+  margin: 40px 0;
+  padding-left: 15%;
+  /* Changes if the flip is 3D or not */
+  perspective: 1300px;  
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: black;
+}
+
+.card__face--back {
+  background: black;
+  transform: rotateY(180deg);
+}

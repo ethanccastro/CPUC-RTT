@@ -25,22 +25,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand ms-4" href="/">
-            <img id="growImage" src="../static/images/logoCrop.png" width="9%">
+            <img id="growImage" src="../static/images/logoCropInverted.png" width="9%">
             <h2 class="rttNetwork" id="fadeWords"> RTT NETWORK </h2>
         </a>
         <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+    
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ms-5">
-                    <a class="nav-link active" style="color: rgb(56, 54, 154);" href="/westRTT"> West Average RTT </a>
+                    <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a>
                 </li>
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle" href="/westTCP" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West TCP </a>
+                    <a class="nav-link dropdown-toggle navTextColor" href="/westTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West TCP </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/westTCP"> West TCP Upload 1 </a>
                         <a class="dropdown-item" href="/westTCP"> West TCP Download 1 </a>
@@ -49,10 +51,11 @@
                     </div>
                 </li>
                 <li class="nav-item ms-5">
-                    <a class="nav-link" href="/eastRTT"> East Average RTT </a>
+                    <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
                 </li>
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle" href="/eastTCP" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East TCP </a>
+                    <a class="nav-link dropdown-toggle navTextColor" href="/eastTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East TCP </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/eastTCP"> East TCP Upload 1 </a>
                         <a class="dropdown-item" href="/eastTCP"> East TCP Download 1 </a>
@@ -63,10 +66,72 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Intro Image -->
+    <div class="img1">
+        <div class="text">
+            <h1>West RTT</h1>
+        </div>
+    </div>
     
     <!-- Main Content -->
     <main>
-        <div class="container pt-5 pb-4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col p-5"></div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid p-0">
+            <div class="row text-center p-0 m-0">
+                <div class="col background-graph">
+                    
+                    <div class="scene scene--card">
+                        <div class="card">
+                            <img class="card__face card__face--front" src="../static/images/timePlotAvgRTT-2012-2020.png">
+                            <img class="card__face card__face--back" src="../static/images/timePlotAvgRTT-2012-2020.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <button id="buttonWRTT" class="btn btn-primary my-4 mx-5" type="button"> West Avg RTT </button>
+
+                    <button id="buttonWBoth" class="btn btn-primary my-4 mx-3" type="button"> West Avg RTT/TCP </button>
+
+                    <button id="buttonWTCP" class="btn btn-primary my-4 mx-5" type="button"> West TCP</button>
+
+                    <br>
+
+                    <button id="buttonERTT" class="btn btn-primary my-4 mx-5" type="button"> East Avg RTT </button>
+                    
+                    <button id="buttonEBoth" class="btn btn-primary my-4 mx-3" type="button"> East Avg RTT/TCP </button>
+                    
+                    <button id="buttonETCP" class="btn btn-primary my-4 mx-5" type="button"> East TCP</button>
+
+                    <hr>
+
+                    <h4> Time Plot Avg. RTT: 2012 - 2020 </h4>
+
+                    <h6>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h6>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col p-5"></div>
+            </div>
+        </div>
+
+<!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
+        <!-- <div class="container pt-5 pb-4">
             <div class="row text-center">
                 <div class="col-sm-6">
                     <img src="../static/images/linearPlotAvgRTT-2015-2020.png" width="80%">
@@ -80,39 +145,67 @@
                     <img src="../static/images/timePlotAvgRTT-2012-2020.png" width="85%">
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="text-center">
-        <div id="footer-gradiant"></div>
-
-        <img src="../static/images/logoCrop.png" width="4%">
+        <!-- <div id="footer-gradiant"></div> -->
+    
+        <img src="../static/images/logoCropInverted.png" width="4%">
         <h2 class="rttNetwork"> RTT NETWORK </h2>
     
+        <br>
+        <br>
+    
         <div class="line-spacing pb-5">
-            Website Software Engineer Emails: 
+            Website Software Engineer Emails:
             <br>
-
-            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> / 
-            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> / 
-            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> / 
+    
+            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> /
+            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> /
+            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> /
             <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
             <br>
-
-            Project Mentor:
-            <br>
-            
-            <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
-            <br>
-
+    
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-sm-4">
+                    </div>
+    
+                    <div class="col-sm-2">
+                        Project Mentor:
+                        <br>
+    
+                        <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
+                        <br>
+    
+                    </div>
+    
+                    <div class="col-sm-2 border-start border-dark">
+                        Sponsor:
+                        <br>
+    
+                        <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
+                        <br>
+                    </div>
+    
+                    <div class="col-sm-4">
+                    </div>
+    
+                </div>
+            </div>
+    
             <span>
-                CSUMB <br>
+                <a href="https://csumb.edu/" class="footer-anchor" target="_blank"> CSUMB </a>
+                <br>
                 100 Campus Center, Seaside, CA 93955 <br>
                 (831) 582-3000 <br>
             </span>
-            <br>
-
-            <a href="https://csumb.edu/" class="footer-anchor" target="_blank">CSUMB Website</a> / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a>
+    
+    
+    
+            <!-- / <a href="#" class="footer-anchor" target="_blank">Some other thing here</a> -->
             <br>
         </div>
     
@@ -120,6 +213,8 @@
     
     </footer>
     
+    <script src="../static/js/graphTransition.js"></script>
+
 </body>
 
 </html>
