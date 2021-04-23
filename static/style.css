@@ -20,8 +20,9 @@ nav li {
   margin-left: 70px;
   padding-top: 23px;
   position: relative;
+  float: none;
 }
-nav .collapse a::before {
+nav .collapse .navTextColor::before {
   content: '';
   display: block;
   height: 5px;
@@ -32,7 +33,7 @@ nav .collapse a::before {
   width: 0%;
   transition: all ease-in-out 300ms;
 } 
-nav .collapse a:hover::before {
+nav .collapse .navTextColor:hover::before {
   width: 100%;
 }
 .rttNetwork {
@@ -41,6 +42,10 @@ nav .collapse a:hover::before {
   position: relative;
   top: 20px;
   color: white;
+}
+
+.pe-6 {
+  padding-right: 15%;
 }
 /* .active {
   font-weight: bolder;
@@ -175,7 +180,7 @@ main .bottomDiv {
   top: 50%;
 }
 
-main img {
+main .topDiv img {
   position: absolute;
   top: -40%;
   right: 10%;
