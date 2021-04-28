@@ -1,0 +1,421 @@
+
+<!--  Name: homepage.html
+      Group Members: Chuy Gomez, Jennifer Lopez, Eric Guerra, Ethan Castro
+      Date: 3/10/2021
+      Class: CST499
+      Description: West RTT page to display data for the capstone project
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <link href="../static/style.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script> -->
+    <title> About </title>
+
+    <!-- Font for RTT NETWORK -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap" rel="stylesheet">
+
+    <style>
+        div {
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 50px;
+            padding-left: 20px;
+        }
+
+
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand ms-4" href="/">
+            <img id="growImage" src="../static/images/logoCropInverted.png" width="9%">
+            <h2 class="rttNetwork" id="fadeWords"> RTT NETWORK </h2>
+        </a>
+        <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ms-5">
+                    <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a>
+                </li>
+                <li class="nav-item dropdown ms-5">
+                    <a class="nav-link dropdown-toggle navTextColor" href="/westTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West TCP </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 1 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Download 1 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 2 </a>
+                        <a class="dropdown-item" href="/westTCP"> West TCP Download 2 </a>
+                    </div>
+                </li>
+                <li class="nav-item ms-5">
+                    <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
+                </li>
+                <li class="nav-item dropdown ms-5">
+                    <a class="nav-link dropdown-toggle navTextColor" href="/eastTCP" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East TCP </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 1 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 1 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 2 </a>
+                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 2 </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Intro Image -->
+    <div class="img1">
+        <div class="text">
+            <h1>About RTT Network</h1>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+
+        <div class="container">
+
+            <i>See also: <br>
+                <li><a href="https://www.cpuc.ca.gov/general.aspx?id=1778">Official CPUC website</a></i>
+                <li><a href="http://calbroadbanddrivetest.blogspot.com/"><i>Mobile Broadband Drive-Test Blog Site</i></a></li>
+                <li><a href="https://github.com/ethanccastro/CPUC-RTT"><i>RTT Network Github</i></a></li>
+            <br>
+            <i>For more information from CPUC and their data points:</i>
+                <li><a href="mailto:calspeed@cpuc.ca.gov">calspeed@cpuc.ca.gov</a></li>
+            <br>
+            <i>Contact for details:</i><br>
+            <li><a href="mailto:jesugomez@csumb.edu">jesugomez@csumb.edu</a></li>
+            <li><a href="mailto:jelopez-hernandez@csumb.edu">jelopez-hernandez@csumb.edu</a></li>
+            <li><a href="mailto:ethcastro@csumb.edu">ethcastro@csumb.edu</a></li>
+            <li><a href="mailto:eguerra@csumb.edu">eguerra@csumb.edu</a></li>
+            <br><br><br>
+            
+            <div id="About RTT Network">
+                <li><a href="#About RTT Network"> About RTT Network</a></li>
+                <li><a href="#Source">Methods</a></li>
+                <li><a href="#Definitions">Definitions</a></li>
+                <li><a href="#Data">Data</a></li>
+                <br><br>
+                <h1>About RTT Network</h1>
+                RTT Network manually analyzes, aggregate, and visualize data from the
+                California Public Utilities Comission (CPUC) to provide information regarding
+                the four major carriers (Sprint, Verizon, T-Mobile, AT&T) in the United States.
+                <br><br>
+                Our data is: replicable, reliable, and trusted. We encourage our audience to use the
+                information to help make guided decisions on their choice of service, or inspire to create their
+                own statistics and creativity to further enhance the graphs that are displayed.
+                <br><br> 
+            </div>
+            <div id="Source">
+                <h1>Methods</h1>
+                Part of our work consists of monitoring the years from 2012-2020
+                from all of the major carriers in the west and east coasts of the United States.
+                We sourced our data from the CPUC website and carefully crafted a large datasheet
+                that contains all the information downloaded from the website. There were little to no
+                modifications on the actual data, as we hoped that other people would be able to find 
+                themselves creating their own visualizations.
+                <br><br>
+                The data was divided into several dataframes that originated from all the combined
+                CSV files. We looked at the top 10%, 20%... 50% of the best values for each of the RTT and
+                TCP metrics to find trends and correlations to grab insight about the carriers.
+
+                <br><br>
+    
+            </div>
+            <div id="Definitions">
+                <h1>Definitions</h1>
+                <b>Round-trip time (RTT)</b> is the duration in ms for a network request
+                to go from a starting point and back again. Also known as ping, this metric
+                can inform phone users how fast they are able to communicate and navigate through the internet, applications, or anything that uses their
+                service. The speed is determined by how fast in ms the data is received and sent back. The lower in ms, the faster the speed gets.
+    
+                <br><br>
+    
+                <b>Transmission Control Protocol (TCP)</b> is one of the main protocols of the
+                Internet protocol suite. It enables applications and devices to transmit data by
+                dividing messages into packets which then can be forwarded through switches and routers to
+                the destination. Because these applications and devices are packing and unpacking the data,
+                TCP is divided into upload and download speed. Upload speed is when a device is sending a message,
+                and download speed is when a device is receiving a message. It is important to have both of these to be as
+                high as it can be.
+    
+                <br><br>
+    
+                <b>Difference</b> TCP needs to determine RTT for good performance. For each connection, TCP will 
+                continiously estimate the RTT and adjust how the messages are sent for each packet that is read. 
+                The most important distinction regarded the ability to question whether RTT or TCP can determine
+                the accuracy in which data is sent is RTT's role in assisting TCP's computed time to send out packets.
+                RTT Network recommends seeing the correlation between RTT and TCP by comparing several graphs together. One trend
+                to look out for is how the values increase or decrease. Intuitively, if they were to correlate, RTT would decrease
+                and TCP would increase.
+    
+                <br><br>
+    
+                <b>California Public Utilities Comission (CPUC)</b> is a department of California
+                utilizing CalSpeed project teams to use smartphones and tablets at 2,000 points to measure
+                mobile broadbant service availability. Their data sheets contain summarized data that is the average of the
+                160 individual tests for each metric (RTT and TCP) measured at each point tested. Their data
+                is available for public use and modification.
+    
+            </div>
+    
+            <div id="Data">
+                <h1>Data</h1>
+                These are data sourced from the original CPUC website. All file names correspond
+                to the years that the datapoints were recorded. Atrribute information varies as new datasheets
+                integrated more information, but most
+                of the datasheets contain columns
+                <br><br>
+                <li><a href="{{ url_for('download', filename="Fall2012.csv") }}">Fall2012</a></li>
+                <li><a href="{{ url_for('download', filename="Fall2013.csv") }}">Fall2013</a></li>
+                <li><a href="{{ url_for('download', filename="Fall2014.csv") }}">Fall2014</a></li>
+                <li><a href="{{ url_for('download', filename="Fall2016.csv") }}">Fall2016</a></li>
+                <li><a href="{{ url_for('download', filename="Fall2017.csv") }}">Fall2017</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2012.csv") }}">Spring2012</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2013.csv") }}">Spring2013</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2014.csv") }}">Spring2014</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2015.csv") }}">Spring2015</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2016.csv") }}">Spring2016</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2017-1.csv") }}">Spring2017-1</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2017-2.csv") }}">Spring2017-2</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2017-3.csv") }}">Spring2017-3</a></li>
+                <li><a href="{{ url_for('download', filename="Spring2017-4.csv") }}">Spring2017-4</a></li>
+                <li><a href="{{ url_for('download', filename="Summer2020.csv") }}">Summer2020</a></li>
+                <li><a href="{{ url_for('download', filename="Winter2015-2016.csv") }}">Winter2015-16</a></li>
+
+                <br><br>
+                <b>Attribute Information:</b>
+                <br>
+                <br>
+                <ol type="1">
+                    <li>NORMALIZED LAT</li>
+                    <li>NORMALIZED LONG</li>
+                    <li>TESTER</li>
+                    <li>Location</li>
+                    <li>Census 2010 Designation</li>
+                    <li>Provider</li>
+                    <li>Operator</li>
+                    <li>Network</li>
+                    <li>Round 5 Coverage</li>
+                    <li>Latitude</li>
+                    <li>Longitude</li>
+                    <li>Device ID</li>
+                    <li> Client Type</li>
+                    <li>eRttMin</li>
+                    <li>eRttMax</li>
+                    <li>eRttAvg</li>
+                    <li>eRttLoss</li>
+                    <li>wRttMin</li>
+                    <li>wRttMax</li>
+                    <li>wRttAvg</li>
+                    <li>wRttLoss</li>
+                    <li>ePktMin</li>
+                    <li>ePktAvg</li>
+                    <li>ePktLoss</li>
+                    <li>ePktMin</li>
+                    <li>ePktAvg</li>
+                    <li>ePktLoss</li>
+                    <li>wPktMin</li>
+                    <li>wPktMax</li>
+                    <li>wPktAvg</li>
+                    <li>wPktLoss</li>
+                    <li>wUDP Jitter1</li>
+                    <li>wUDP Loss1</li>
+                    <li>wUDP Period1</li>
+                    <li>wUDP Jitter2</li>
+                    <li>wUDP Loss2</li>
+                    <li>wUDP Period3</li>
+                    <li>eUDP Jitter1</li>
+                    <li>eUDP Loss1</li>
+                    <li>eUDP Period1</li>
+                    <li>eUDP Jitter2</li>
+                    <li>eUDP Loss2</li>
+                    <li>eUDP Jitter3</li>
+                    <li>eUDP Loss3</li>
+                    <li>eUDP Period3</li>
+                    <li>wUDP Jitter4</li>
+                    <li>wUDP Loss4</li>
+                    <li>wUDP Period4</li>
+                    <li>eUDP Jitter4</li>
+                    <li>eUDP Loss4</li>
+                    <li>eUDP Period4</li>
+                    <li>wTCP_UP1</li>
+                    <li>wTCP_DOWN1</li>
+                    <li>eTCP_UP1</li>
+                    <li>eTCP_DOWN1</li>
+                    <li>wTCP_UP2</li>
+                    <li>wTCP_DOWN2</li>
+                    <li>eTCP_UP2</li>
+                    <li>eTCP_DOWN2</li>
+                    <li>wPktLoss</li>
+                  </ol>
+                <br><br>
+                The datasheets that integrate all separate sources of csv
+                <br><br>
+                <li><a href="{{ url_for('download', filename="mainDataFrame.csv") }}">Dataframe</a></li>
+                <br><br>
+
+                <table border="1" cellpadding="6">
+                    <tbody><tr>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Data Set Characteristics:&nbsp;&nbsp;</b></p></td>
+                        <td><p class="normal">Multivariate</p></td>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Number of Instances:</b></p></td>
+                        <td><p class="normal">134449</p></td>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Area:</b></p></td>
+                        <td><p class="normal">Network</p></td>
+                    </tr>
+                
+                    <tr>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Attribute Characteristics:</b></p></td>
+                        <td><p class="normal">Float, Object, Datetime</p></td>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Number of Attributes:</b></p></td>
+                        <td><p class="normal">6</p></td>
+                        <td bgcolor="#DDEEFF"><p class="normal"><b>Date Donated</b></p></td>
+                        <td><p class="normal">2012-2020</p></td>
+                    </tr>
+                </tbody></table>
+
+                <br><br>
+                All of the datasheets listed below removed all of the columns that were not needed and
+                filled in values with missing data. It would only look at the top values for each of the RTT and TCP
+                <br><br>
+                RTT
+                <br><br>
+                <li><a href="{{ url_for('download', filename="rtt10.csv") }}">West RTT Top 10%</a></li>
+                <li><a href="{{ url_for('download', filename="rtt20.csv") }}">West RTT Top 20%</a></li>
+                <li><a href="{{ url_for('download', filename="rtt30.csv") }}">West RTT Top 30%</a></li>
+                <li><a href="{{ url_for('download', filename="rtt40.csv") }}">West RTT Top 40%</a></li>
+                <li><a href="{{ url_for('download', filename="rtt50.csv") }}">West RTT Top 50%</a></li>
+                <br><br>
+                TCP Upload
+                <br><br>
+                <li><a href="{{ url_for('download', filename="tcpup10.csv") }}">West TCP Upload Top 10%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpup20.csv") }}">West TCP Upload Top 20%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpup30.csv") }}">West TCP Upload Top 30%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpup40.csv") }}">West TCP Upload Top 40%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpup50.csv") }}">West TCP Upload Top 50%</a></li>
+                <br><br>
+                TCP Download
+                <br><br>
+                <li><a href="{{ url_for('download', filename="tcpdown10.csv") }}">West TCP Download Top 10%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpdown20.csv") }}">West TCP Download Top 20%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpdown30.csv") }}">West TCP Download Top 30%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpdown40.csv") }}">West TCP Download Top 40%</a></li>
+                <li><a href="{{ url_for('download', filename="tcpdown50.csv") }}">West TCP Download Top 50%</a></li>
+                <br><br>
+
+
+                <br>
+                <b>Attribute Information:</b>
+                <br>
+                <ol type="1">
+                    <li>Date</li>
+                    <li>Provider</li>
+                    <li>DeviceType</li>
+                    <li>wRttAvg</li>
+                    <li>TCPUp</li>
+                    <li>TCPDown</li>
+                  </ol>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col p-5"></div>
+            </div>
+        </div>
+
+<!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
+        <!-- <div class="container pt-5 pb-4">
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <img src="../static/images/linearPlotAvgRTT-2015-2020.png" width="80%">
+                </div>
+                <div class="col-sm-6">
+                    <img src="../static/images/10%.png" width="69%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <img src="../static/images/timePlotAvgRTT-2012-2020.png" width="85%">
+                </div>
+            </div>
+        </div> -->
+    </main>
+
+    <footer class="text-center">
+        <img src="../static/images/logoCropInverted.png" width="4%">
+        <h2 class="rttNetwork"> RTT NETWORK </h2>
+    
+        <br>
+        <br>
+    
+        <div class="line-spacing pb-5">
+            Website Software Engineer Emails:
+            <br>
+    
+            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> /
+            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> /
+            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> /
+            <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
+            <br>
+    
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-sm-4"></div>
+    
+                    <div class="col-sm-2">
+                        Project Mentor:<br>
+                        <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
+                        <br>
+    
+                    </div>
+    
+                    <div class="col-sm-2 border-start border-dark">
+                        Sponsor:</br>
+                        <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
+                        <br>
+                    </div>
+    
+                    <div class="col-sm-4"></div>    
+                </div>
+            </div>
+    
+            <span>
+                <a href="https://csumb.edu/" class="footer-anchor" target="_blank"> CSUMB </a>
+                <br>
+                100 Campus Center, Seaside, CA 93955 <br>
+                (831) 582-3000 <br>
+            </span>
+            <br>
+        </div>
+    </footer>
+    
+    <script src="../static/js/graphTransition.js"></script>
+    <script src="../static/js/windowScroll.js"></script>
+</body>
+
+</html>
