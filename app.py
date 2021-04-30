@@ -128,9 +128,9 @@ def westRtt():
     return render_template('westRTT.html')
 
 
-@app.route('/westTCP')
+@app.route('/westPing')
 def westTCP():
-    return render_template('westTCP.html')
+    return render_template('westPing.html')
 
 
 @app.route('/eastRTT')
@@ -138,9 +138,9 @@ def eastRtt():
     return render_template('eastRTT.html')
 
 
-@app.route('/eastTCP')
+@app.route('/eastPing')
 def eastTCP():
-    return render_template('eastTCP.html')
+    return render_template('eastPing.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

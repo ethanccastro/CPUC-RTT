@@ -1,42 +1,45 @@
 
 function westRttTcpTenPercentFunc() {
-    $('.card .card__face--front').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png');
-    $('.card .card__face--back').attr('src', '../static/images/timePlotAvgRTT-2012-2020.png');
-    $('.col h4').text(' Time Plot Avg. RTT: 2012 - 2020 ');
+    $('#10Wgraph').show(1100, "linear");
+    $('#20Wgraph').hide(700, "linear");
+    $('#50Wgraph').hide(700, "linear");
+    $('.col h4').text(' Top 10% West RTT/TCP Data ');
     $('.col h6').text('In a time of crisis, ask yourself, what will Napoleon do? He would probably dip his croissant in coffee and invade Russia. Not very relevant here because he was never trapped in an underground basement filled with blood thirsty aliens! Thats right ladies and gentlemen, you are screwed');
 }
 
 function westRttTcpTwentyPercentFunc() {
-    $('.card .card__face--front').attr('src', '../static/images/linearPlotAvgRTT-2015-2020.png');
-    $('.card .card__face--back').attr('src', '../static/images/linearPlotAvgRTT-2015-2020.png');
-    $('.col h4').text(' West TCP WIP ');
+    $('#10Wgraph').hide(700, "linear");
+    $('#20Wgraph').show(1100, "linear");
+    $('#50Wgraph').hide(700, "linear");
+    $('.col h4').text(' Top 20% West RTT/TCP Data ');
     $('.col h6').text('It was a weird concept. Why would I really need to generate a random paragraph? Could I actually learn something from doing so? All these questions were running through her head as she pressed the generate button. To her surprise, she found what she least expected to see.');
 }
 
 function westRttTcpFiftyPercentFunc() {
-    $('.card .card__face--front').attr('src', '../static/images/10%.png');
-    $('.card .card__face--back').attr('src', '../static/images/10%.png');
-    $('.col h4').text(' Both West RTT and TCP WIP ');
+    $('#10Wgraph').hide(700, "linear");
+    $('#20Wgraph').hide(700, "linear");
+    $('#50Wgraph').show(1100, "linear");
+    $('.col h4').text(' Top 50% West RTT/TCP Data ');
     $('.col h6').text('This is a work in progress.');
 }
 
-var card = document.querySelector('.card');
+function loadWestGraphFunction() {
+    $('#20Wgraph').hide();
+    $('#50Wgraph').hide();
+}
 
 // West RTT, TCP, Both
 $("#buttonWTen").click(function () {
-    card.classList.toggle('is-flipped')
-    setTimeout(westRttTcpTenPercentFunc, 290);
+    setTimeout(westRttTcpTenPercentFunc);
 });
 $("#buttonWTwenty").click(function () {
-    card.classList.toggle('is-flipped');
-    setTimeout(westRttTcpTwentyPercentFunc, 290);
+    setTimeout(westRttTcpTwentyPercentFunc);
 });
 $("#buttonWFifty").click(function () {
-    card.classList.toggle('is-flipped');
-    setTimeout(westRttTcpFiftyPercentFunc, 290);
+    setTimeout(westRttTcpFiftyPercentFunc);
 });
 
-
-$(function () {
-    $("#stuff").load("../../templates/wRTTAvg_10.html");
+// A $( document ).ready() block.
+$(document).ready(function () {
+    setTimeout(loadWestGraphFunction, 2500);
 });

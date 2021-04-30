@@ -42,22 +42,22 @@
                     <!-- <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a> -->
                 </li>
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle navTextColor" href="/westTCP" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle navTextColor" href="/westRTT" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West Network Graphs </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/westTCP"> West RTT & TCP </a>
-                        <a class="dropdown-item" href="/westTCP"> West Upload/Download Ping </a>
+                        <a class="dropdown-item" href="/westRTT"> West RTT & TCP </a>
+                        <a class="dropdown-item" href="/westPing"> West Upload/Download Ping </a>
                     </div>
                 </li>
                 <!-- <li class="nav-item ms-5">
                     <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
                 </li> -->
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle navTextColor" href="/eastTCP" id="navbarDropdownMenuLink"
+                    <a class="nav-link dropdown-toggle navTextColor" href="/eastRTT" id="navbarDropdownMenuLink"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East Network Graphs </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/eastTCP"> East RTT & TCP </a>
-                        <a class="dropdown-item" href="/eastTCP"> East Upload/Download Ping </a>
+                        <a class="dropdown-item" href="/eastRTT"> East RTT & TCP </a>
+                        <a class="dropdown-item" href="/eastPing"> East Upload/Download Ping </a>
                     </div>
                 </li>
             </ul>
@@ -73,21 +73,11 @@
     
     <!-- Main Content -->
     <main>
+
+        <!-- blank space -->
         <div class="container">
             <div class="row">
-                <div class="col p-5">
-                    
-                    <!-- wAvg10_RTT -->
-                    wAVG10
-                    <iframe width="900" height="800" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe>
-                    <!-- wAvg20_RTT -->
-                    wAVG20
-                    <iframe width="900" height="800" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe>
-                    <!-- wAvg50_RTT -->
-                    wAVG50
-                    <iframe width="900" height="800" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
-
-                </div>
+                <div class="col text-center pt-5 pb-0"></div>
             </div>
         </div>
 
@@ -107,37 +97,87 @@
         <!-- eAvg50_RTT -->
         <!-- eAVG50
         <iframe width="900" height="800" frameborder="0" scrolling="no"
-            src="https://chart-studio.plotly.com/~EricG831/9.embed"></iframe> --> -->
+            src="https://chart-studio.plotly.com/~EricG831/9.embed"></iframe> --> 
 
 
-        <div class="container-fluid p-0">
-            <div class="row text-center p-0 m-0">
+        <div class="container p-0">
+            <div class="row text-center py-0 m-0"">
+
+                <div class="col border-end">
                 
-                <div class="col background-graph"> 
-                    <div class="scene scene--card">
-                        <div class="card">
 
-                            <img class="card__face card__face--front" src="../static/images/timePlotAvgRTT-2012-2020.png">
-                            <img class="card__face card__face--back" src="../static/images/timePlotAvgRTT-2012-2020.png">
-                            
-                        </div>
-                    </div>
+                    <iframe id="10Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                        src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe>
+                    
+
+                    <iframe id="20Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                        src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe>
+                    
+
+                    <iframe id="50Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                        src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
+
+                </div>
+                
+                <div class="col pt-5 mt-0">
+
+                    <h5> Click a button to change top percentage of data used </h5>
+
+                    <button id="buttonWTen" class="btn btn-primary my-4 mx-5" type="button"> 10% </button>
+                    <button id="buttonWTwenty" class="btn btn-primary my-4 mx-3" type="button"> 20% </button>
+                    <button id="buttonWFifty" class="btn btn-primary my-4 mx-5" type="button"> 50% </button>
+                
+                    <hr>
+                
+                    <h4> Time Plot Avg. RTT: 2012 - 2020 </h4>
+                    <h6>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+                        keffiyeh
+                        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h6>
+
+                    <br>
+                    
+                    <h5 class="font-italic"> How to read the graph:</h5>
+
                 </div>
 
-                <div class="col">
+                <!-- wAvg10_RTT -->
+                <!-- <iframe id="10Wgraph" width="400" height="500" frameborder="0" scrolling="no"
+                    src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe> -->
+
+                <!-- wAvg20_RTT -->
+                <!-- <iframe id="20Wgraph" width="400" height="500" frameborder="0" scrolling="no"
+                    src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe> -->
+
+                <!-- wAvg50_RTT -->
+                <!-- <iframe id="50Wgraph" width="400" height="500" frameborder="0" scrolling="no"
+                    src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe> -->
+
+            </div>
+        </div>
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col text-center pt-0">
+
+                    <h5>Click a button to change top percentage of data used</h5>
+                    
                     <button id="buttonWTen" class="btn btn-primary my-4 mx-5" type="button"> 10% </button>
                     <button id="buttonWTwenty" class="btn btn-primary my-4 mx-3" type="button"> 20% </button>
                     <button id="buttonWFifty" class="btn btn-primary my-4 mx-5" type="button"> 50% </button>
 
                     <hr>
+                    
+                    <h4> Top 10% West RTT/TCP Data </h4>
+                    <br>
+                    <h6>In a time of crisis, ask yourself, what will Napoleon do? He would probably dip his croissant in coffee and invade
+                    Russia. Not very relevant here because he was never trapped in an underground basement filled with blood thirsty aliens!
+                    Thats right ladies and gentlemen, you are screwed</h6>
 
-                    <h4> Time Plot Avg. RTT: 2012 - 2020 </h4>
-                    <h6>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h6>
                 </div>
             </div>
-        </div>
+        </div> -->
 
+        <!-- blank space -->
         <div class="container">
             <div class="row">
                 <div class="col p-5"></div>
@@ -147,9 +187,12 @@
     </main>
 
     <footer class="text-center">
-        <img src="../static/images/logoCropInverted.png" width="4%">
-        <h2 class="rttNetwork"> RTT NETWORK </h2>
-    
+
+        <a class="text-decoration-none" href="/">
+            <img src="../static/images/logoCropInverted.png" width="4%">
+            <h2 class="rttNetwork"> RTT NETWORK </h2>
+        </a>
+
         <br>
         <br>
     

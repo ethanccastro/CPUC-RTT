@@ -33,32 +33,32 @@
         <button class="navbar-toggler me-4" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-
+    
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end pe-6" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item ms-5">
-                    <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a>
+                    <!-- <a class="nav-link navTextColor" href="/westRTT"> West Average RTT </a> -->
                 </li>
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle navTextColor" href="/westTCP" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West TCP </a>
+                    <a class="nav-link dropdown-toggle navTextColor" href="/westRTT" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> West Network Graphs
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 1 </a>
-                        <a class="dropdown-item" href="/westTCP"> West TCP Download 1 </a>
-                        <a class="dropdown-item" href="/westTCP"> West TCP Upload 2 </a>
-                        <a class="dropdown-item" href="/westTCP"> West TCP Download 2 </a>
+                        <a class="dropdown-item" href="/westRTT"> West RTT & TCP </a>
+                        <a class="dropdown-item" href="/westPing"> West Upload/Download Ping </a>
                     </div>
                 </li>
-                <li class="nav-item ms-5">
-                    <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
-                </li>
+                <!-- <li class="nav-item ms-5">
+                        <a class="nav-link navTextColor" href="/eastRTT"> East Average RTT </a>
+                    </li> -->
                 <li class="nav-item dropdown ms-5">
-                    <a class="nav-link dropdown-toggle navTextColor" href="/eastTCP" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East TCP </a>
+                    <a class="nav-link dropdown-toggle navTextColor" href="/eastRTT" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> East Network Graphs
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 1 </a>
-                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 1 </a>
-                        <a class="dropdown-item" href="/eastTCP"> East TCP Upload 2 </a>
-                        <a class="dropdown-item" href="/eastTCP"> East TCP Download 2 </a>
+                        <a class="dropdown-item" href="/eastRTT"> East RTT & TCP </a>
+                        <a class="dropdown-item" href="/eastPing"> East Upload/Download Ping </a>
                     </div>
                 </li>
             </ul>
@@ -85,42 +85,47 @@
 
     <!-- Footer -->
     <footer class="text-center">
-        <img src="../static/images/logoCropInverted.png" width="4%">
-        <h2 class="rttNetwork"> RTT NETWORK </h2>
-
+    
+        <a class="text-decoration-none" href="/">
+            <img src="../static/images/logoCropInverted.png" width="4%">
+            <h2 class="rttNetwork"> RTT NETWORK </h2>
+        </a>
+    
         <br>
         <br>
-
+    
         <div class="line-spacing pb-5">
-            Website Software Engineer Emails: 
+            Website Software Engineer Emails:
             <br>
-
-            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> / 
-            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> / 
-            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> / 
+    
+            <a href="mailto: jesugomez@csumb.edu" class="footer-anchor">Jesus Gomez</a> /
+            <a href="mailto: jelopez-hernandez@csumb.edu" class="footer-anchor">Jennifer Lopez</a> /
+            <a href="mailto: ethcastro@csumb.edu" class="footer-anchor">Ethan Castro</a> /
             <a href="mailto: eguerra@csumb.edu" class="footer-anchor">Eric Guerra</a>
             <br>
-
+    
             <div class="container">
                 <div class="row">
+    
                     <div class="col-sm-4"></div>
-
+    
                     <div class="col-sm-2">
-                        Project Mentor: <br>
+                        Project Mentor:<br>
                         <a href="mailto: ybyun@csumb.edu" class="footer-anchor">Dr. Byun</a>
                         <br>
+    
                     </div>
-
+    
                     <div class="col-sm-2 border-start border-dark">
-                        Sponsor:<br>
+                        Sponsor:</br>
                         <a href="https://www.cpuc.ca.gov/" class="footer-anchor" target="_blank">CPUC</a>
                         <br>
                     </div>
-
+    
                     <div class="col-sm-4"></div>
                 </div>
             </div>
-
+    
             <span>
                 <a href="https://csumb.edu/" class="footer-anchor" target="_blank"> CSUMB </a>
                 <br>
