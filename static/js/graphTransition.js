@@ -24,7 +24,7 @@ var card = document.querySelector('.card');
 
 // West RTT, TCP, Both
 $("#buttonWTen").click(function () {
-    card.classList.toggle('is-flipped');
+    card.classList.toggle('is-flipped')
     setTimeout(westRttTcpTenPercentFunc, 290);
 });
 $("#buttonWTwenty").click(function () {
@@ -37,3 +37,6 @@ $("#buttonWFifty").click(function () {
 });
 
 
+$(function () {
+    $("#stuff").load("../../templates/wRTTAvg_10.html");
+});
