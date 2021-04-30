@@ -15,10 +15,6 @@ import mpld3
 app = Flask(__name__)
 app.config["CLIENT_IMAGES"] = "/mnt/c/wsl/projects/pythonise/tutorials/flask_series/app/app/static/client/img"
 
-
-
-#plt.show()
-
 # default route -- homepage
 @app.route('/')
 def default():
@@ -31,19 +27,9 @@ def download(filename):
             attachment_filename=filename,
             as_attachment=True)
 
-
-@app.route('/westRTT')
-def westRtt():
-    return render_template('westRTT.html')
-
-
 @app.route('/westPing')
 def westTCP():
     return render_template('westPing.html')
-
-@app.route('/eastPing')
-def eastTCP():
-    return render_template('eastPing.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
