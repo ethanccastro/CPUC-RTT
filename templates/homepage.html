@@ -5,7 +5,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="stylesheet" href="static/css/df_style.css" />
 		<noscript><link rel="stylesheet" href="static/css/noscript.css" /></noscript>
+		<style>
+			ul {
+                padding-left:50px;
+            }
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -32,7 +38,7 @@
 							<h2>RTT</h2>
 							<p>Take a look at RTT trends</p>
 							<ul class="actions stacked">
-								<li><a href="/westTCP" class="button">See More</a></li>
+								<li><a href="#RTT" class="button big wide smooth-scroll-middle">See More</a></li>
 							</ul>
 						</div>
 						<div class="image">
@@ -46,7 +52,7 @@
 							<h2>TCP</h2>
 							<p>Take a look at TCP Trends</p>
 							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="#TCP" class="button big wide smooth-scroll-middle">Learn More</a></li>
 							</ul>
 						</div>
 						<div class="image">
@@ -54,19 +60,777 @@
 						</div>
 					</section>
 
-				<!-- About -->
+				<!-- Spotlight #3 -->
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2>About</h2>
 							<p>What RTT Network is and what we do</p>
 							<ul class="actions stacked">
-								<li><a href="/about" class="button">Learn More</a></li>
+								<li><a href="#About" class="button big wide smooth-scroll-middle">Learn More</a></li>
 							</ul>
 						</div>
 						<div class="image">
 							<img src="static/images/spotlight03.jpg" alt="" />
 						</div>
 					</section>
+					<!-- RTT Section -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<div id="RTT"><h2>RTT</h2></div>
+							<div class="index align-left">
+								
+								<!-- Text -->
+									<section>
+										<header>
+											<h3>Sections</h3>
+										</header>
+										<div class="content">
+											<ol>
+												<li><a href="#RTTIntroduction">Introduction</a></i>
+												<li><a href="#RTTVisualizations"><i>Interactive Visualizations</i></a></li>
+												<li><a href="#RTTInfo"><i>How Information Was Generated</i></a></li>
+
+											</ol>
+										</div>
+									</section>
+									<section>
+										<header>
+											<div id="RTTIntroduction"><h3>Introduction</h3></div>
+										</header>
+										<div class="content">
+
+											<span class="image fit"><img src="static/images/linePlotRTTavg.png" alt=""></span>
+											<p>As shown by the graphic above, RTT patterns appear to trend downwards, implying that
+												ping times are continuing to decrease from years 2012-2020. The highest average among
+												all carriers peaked at about 51ms in 2013, while the lowest was 45ms in 2020. As 5G becomes
+												more common at more data points are set up around California, we can predict that
+												the times would continue to decrease.
+											</p>
+											<br><br>
+											<span class="image fit"><img src="static/images/densityPlotRTT.png" alt=""></span>
+											Some of the values of the RTT time over the years for each provider. Clearly, Verizon has
+											maintained the best speeds. At around 47 ms, Verizon can claim that they had the best speeds 
+											over the years. Meanwhile, T-Mobile has maintained one of the worst speeds and Sprint had logged
+											the worst RTT ms at around 53ms.
+											<br><br>
+
+									</section>
+									<section>
+										<header>
+											<div id="RTTVisualizations"><h3>Visualizations</h3></div>
+										</header>
+										<div class="content">
+
+											Insert interactive graphs here
+
+									</section>
+									<section>
+										<div id="RTTInfo"></div>
+										<div class="content">
+										Contains all the preprocessing needed to create the Dataframe
+										that can aggregate the mean based on the dates and providers.
+										<pre>
+											<code>
+import numpy as np
+import pandas as pd
+import glob as glob
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('mainDF.csv')
+
+# replaces rows where TCP has no connection with 0
+df = df.replace(['Quit by User', 'no effective service', ' no effective service', 'bad_output', 'connect_error1', 
+                 ' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
+                 ' NA'], 0)
+# replaces rows where RTT has no connection with NaN
+df['wRttAvg'] = df['wRttAvg'].replace(0, np.nan)
+
+
+# change object type of 'Date' to datetime64
+df['Date'] = pd.to_datetime(df['Date'])
+# only keep year
+df['Date'] = df.Date.dt.year
+
+# drop unnamed column
+df.drop('Unnamed: 0', axis=1, inplace=True)
+# drop all rows with FirstNet
+df = df[df['Provider'] != 'FirstNet']
+df['Provider'] = df['Provider'].str.strip()
+df['Provider'] = df['Provider'].str.replace('sprint', 'Sprint')
+
+# change object types to float
+df['wTCPUp1'] = df['wTCPUp1'].astype('float')
+df['wTCPUp2'] = df['wTCPUp2'].astype('float')
+df['wTCPDown1'] = df['wTCPDown1'].astype('float')
+df['wTCPDown2'] = df['wTCPDown2'].astype('float')
+df['wRttAvg'] = df['wRttAvg'].astype('float')
+
+# find average in TCP and drop columns
+df['wTCPUp'] = (df['wTCPUp1'] + df['wTCPUp2'])/2
+df['wTCPDown'] = (df['wTCPDown1'] + df['wTCPDown2'])/2
+df = df.drop(['wTCPUp1', 'wTCPUp2', 'wTCPDown1', 'wTCPDown2'], axis=1)
+
+# remove rows containing "Tablet" as device
+df = df[~df['DeviceType'].str.contains('Netbook')]
+
+
+												</code>
+										</pre>
+										Creates a new dataframe looking at the top 10% of values.
+
+										<pre>
+											<code>
+rtt = df.loc[(df['wRttAvg'] != 0)].nsmallest(math.floor((len(df)*.10)), 'wRttAvg')
+
+										</code>
+										</pre>
+										Information about rtt dataframe
+
+										<pre>
+											<code>
+rtt.info()
+										</code>
+										</pre>
+										<table border="1" class="dataframe mystyle">
+											<thead>
+											  <tr style="text-align: center;">
+												<th></th>
+												<th>Column</th>
+												<th>Non-Null</th>
+												<th>Count</th>
+												<th>Dtype</th>		
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+												<th>0</th>
+												<td>Date</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>int64</td>
+											  </tr>
+											  <tr>
+												<th>1</th>
+												<td>Provider</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>object</td>
+											  </tr>
+											  <tr>
+												<th>2</th>
+												<td>DeviceType</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>object</td>
+											  </tr>
+											  <tr>
+												<th>3</th>
+												<td>wRttAvg</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											  <tr>
+												<th>4</th>
+												<td>wTCPUp</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											  <tr>
+												<th>5</th>
+												<td>wTCPDown</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											</tbody>
+										  </table>
+										<pre>
+											<code>
+rtt.describe()
+										</code>
+										</pre>
+										<table border="1" class="dataframe mystyle">
+											<thead>
+											  <tr style="text-align: center;">
+												<th></th>
+												<th>Date</th>
+												<th>wRttAvg</th>
+												<th>wTCPUp</th>
+												<th>wTCPDown</th>		
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+												<th>count</th>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+											  </tr>
+											  <tr>
+												<th>mean</th>
+												<td>2017.426882</td>
+												<td>47.005968</td>
+												<td>10323.650576</td>
+												<td>26664.919243</td>
+											  </tr>
+											  <tr>
+												<th>std</th>
+												<td>2.233540</td>
+												<td>5.846066</td>
+												<td>9769.509954</td>
+												<td>28918.483273</td>
+											  </tr>
+											  <tr>
+												<th>min</th>
+												<td>2012.000000</td>
+												<td>28.222000</td>
+												<td>0.000000</td>
+												<td>0.000000</td>
+											  </tr>
+											  <tr>
+												<th>25%</th>
+												<td>2016.000000</td>
+												<td>42.677750</td>
+												<td>3645.375000</td>
+												<td>8034.250000</td>
+											  </tr>
+											  <tr>
+												<th>75%</th>  
+												<td>2020.000000</td>
+												<td>51.890250</td>
+												<td>13767.750000</td>
+												<td>32662.625000</td>
+											  </tr>
+											  <tr>
+												<th>max</th>  
+												<td>2020.000000</td>
+												<td>56.509000</td>
+												<td>64192.500000</td>
+												<td>232749.000000</td>
+											  </tr>
+											</tbody>
+										  </table>
+									</section>
+							</div>
+					</section>
+
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<div id="TCP"><h2>TCP</h2></div>
+							<div class="index align-left">
+								
+								<!-- Text -->
+									<section>
+										<header>
+											<h3>Sections</h3>
+										</header>
+										<div class="content">
+											<ol>
+												<li><a href="#TCPIntroduction">Introduction</a></i>
+												<li><a href="#TCPVisualizations"><i>Interactive Visualizations</i></a></li>
+												<li><a href="#TCPInfo"><i>How Information Was Generated</i></a></li>
+
+											</ol>
+										</div>
+									</section>
+									<section>
+										<header>
+											<div id="TCPIntroduction"><h3>Introduction</h3></div>
+										</header>
+										<div class="content">
+
+											<span class="image fit"><img src="static/images/timePltTCPUp.png" alt=""></span>
+											<p> Although a slight dip in 2013, TCP up trends upwards throughout the years.
+											</p>
+											<br>
+											<span class="image fit"><img src="static/images/timePltTCPDown.png" alt=""></span>
+											<p>
+												With TCP Down, 2012-2017 speeds stayed someone stagnant. Then, it follows a linear line trending upwards.
+											</p>
+											<br><br>
+
+
+
+									</section>
+									<section>
+										<header>
+											<div id="TCPVisualizations"><h3>Visualizations</h3></div>
+										</header>
+										<div class="content">
+
+											Insert interactive graphs here
+
+									</section>
+									<section>
+										<div id="TCPInfo"></div>
+										<div class="content">
+										Contains all the preprocessing needed to create the Dataframe
+										that can aggregate the mean based on the dates and providers.
+										<pre>
+											<code>
+import numpy as np
+import pandas as pd
+import glob as glob
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('mainDF.csv')
+
+# replaces rows where TCP has no connection with 0
+df = df.replace(['Quit by User', 'no effective service', ' no effective service', 'bad_output', 'connect_error1', 
+                 ' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
+                 ' NA'], 0)
+# replaces rows where RTT has no connection with NaN
+df['wRttAvg'] = df['wRttAvg'].replace(0, np.nan)
+
+
+# change object type of 'Date' to datetime64
+df['Date'] = pd.to_datetime(df['Date'])
+# only keep year
+df['Date'] = df.Date.dt.year
+
+# drop unnamed column
+df.drop('Unnamed: 0', axis=1, inplace=True)
+# drop all rows with FirstNet
+df = df[df['Provider'] != 'FirstNet']
+df['Provider'] = df['Provider'].str.strip()
+df['Provider'] = df['Provider'].str.replace('sprint', 'Sprint')
+
+# change object types to float
+df['wTCPUp1'] = df['wTCPUp1'].astype('float')
+df['wTCPUp2'] = df['wTCPUp2'].astype('float')
+df['wTCPDown1'] = df['wTCPDown1'].astype('float')
+df['wTCPDown2'] = df['wTCPDown2'].astype('float')
+df['wRttAvg'] = df['wRttAvg'].astype('float')
+
+# find average in TCP and drop columns
+df['wTCPUp'] = (df['wTCPUp1'] + df['wTCPUp2'])/2
+df['wTCPDown'] = (df['wTCPDown1'] + df['wTCPDown2'])/2
+df = df.drop(['wTCPUp1', 'wTCPUp2', 'wTCPDown1', 'wTCPDown2'], axis=1)
+
+# remove rows containing "Tablet" as device
+df = df[~df['DeviceType'].str.contains('Netbook')]
+												</code>
+										</pre>
+										Creates a new dataframe looking at the top 10% of values.
+
+										<pre>
+											<code>
+tcpup = df.nlargest(math.floor((len(df)*.10)), 'wTCPUp')
+tcpdown = df.nlargest(math.floor((len(df)*.10)), 'wTCPDown')
+										</code>
+										</pre>
+										Information about tcpup/tcpdown dataframe
+
+										<pre>
+											<code>
+tcpup.info()
+tcpdown.info()
+										</code>
+										</pre>
+										<table border="1" class="dataframe mystyle">
+											<thead>
+											  <tr style="text-align: center;">
+												<th></th>
+												<th>Column</th>
+												<th>Non-Null</th>
+												<th>Count</th>
+												<th>Dtype</th>		
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+												<th>0</th>
+												<td>Date</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>int64</td>
+											  </tr>
+											  <tr>
+												<th>1</th>
+												<td>Provider</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>object</td>
+											  </tr>
+											  <tr>
+												<th>2</th>
+												<td>DeviceType</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>object</td>
+											  </tr>
+											  <tr>
+												<th>3</th>
+												<td>wRttAvg</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											  <tr>
+												<th>4</th>
+												<td>wTCPUp</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											  <tr>
+												<th>5</th>
+												<td>wTCPDown</td>
+												<td>non-null</td>
+												<td>13444</td>
+												<td>float64</td>
+											  </tr>
+											</tbody>
+										  </table>
+										<pre>
+											<code>
+tcpup.describe()
+										</code>
+										</pre>
+										<table border="1" class="dataframe mystyle">
+											<thead>
+											  <tr style="text-align: center;">
+												<th></th>
+												<th>Date</th>
+												<th>wRttAvg</th>
+												<th>wTCPUp</th>
+												<th>wTCPDown</th>		
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+												<th>count</th>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+											  </tr>
+											  <tr>
+												<th>mean</th>
+												<td>2016.786299</td>
+												<td>81.920302</td>
+												<td>20643.281389</td>
+												<td>34997.250368</td>
+											  </tr>
+											  <tr>
+												<th>std</th>
+												<td>1.849565</td>
+												<td>34.797107</td>
+												<td>7127.195264</td>
+												<td>26157.095554</td>
+											  </tr>
+											  <tr>
+												<th>min</th>
+												<td>2012.000000</td>
+												<td>0.000000</td>
+												<td>15194.000000</td>
+												<td>124.500000</td>
+											  </tr>
+											  <tr>
+												<th>25%</th>
+												<td>2016.000000</td>
+												<td>62.704750</td>
+												<td>16666.500000</td>
+												<td>21307.875000</td>
+											  </tr>
+											  <tr>
+												<th>50%</th>
+												<td>2016.000000</td>
+												<td>76.626000</td>
+												<td>18446.000000</td>
+												<td>28935.250000</td>
+											  </tr>
+											  <tr>
+												<th>75%</th>  
+												<td>2017.000000</td>
+												<td>88.197500</td>
+												<td>21356.750000</td>
+												<td>38638.625000</td>
+											  </tr>
+											  <tr>
+												<th>max</th>  
+												<td>2020.000000</td>
+												<td>791.425000</td>
+												<td>64192.500000</td>
+												<td>232749.000000</td>
+											  </tr>
+											</tbody>
+										  </table>
+										  <pre>
+											<code>
+tcpdown.describe()
+										</code>
+										</pre>
+										<table border="1" class="dataframe mystyle">
+											<thead>
+											  <tr style="text-align: center;">
+												<th></th>
+												<th>Date</th>
+												<th>wRttAvg</th>
+												<th>wTCPUp</th>
+												<th>wTCPDown</th>		
+											  </tr>
+											</thead>
+											<tbody>
+											  <tr>
+												<th>count</th>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+												<td>13444.000000</td>
+											  </tr>
+											  <tr>
+												<th>mean</th>
+												<td>2017.294927</td>
+												<td>81.114935</td>
+												<td>15973.411106</td>
+												<td>47726.691015</td>
+											  </tr>
+											  <tr>
+												<th>std</th>
+												<td>2.189790</td>
+												<td>48.074959</td>
+												<td>9667.741668</td>
+												<td>25157.416915</td>
+											  </tr>
+											  <tr>
+												<th>min</th>
+												<td>2012.000000</td>
+												<td>0.000000</td>
+												<td>603.700000</td>
+												<td>29373.000000</td>
+											  </tr>
+											  <tr>
+												<th>25%</th>
+												<td>2016.000000</td>
+												<td>51.342500</td>
+												<td>9693.125000</td>
+												<td>32969.375000</td>
+											  </tr>
+											  <tr>
+												<th>50%</th>
+												<td>2017.000000</td>
+												<td>74.137000</td>
+												<td>14967.250000</td>
+												<td>37755.750000</td>
+											  </tr>
+											  <tr>
+												<th>75%</th>  
+												<td>2020.000000</td>
+												<td>90.191500</td>
+												<td>19776.500000</td>
+												<td>50109.375000</td>
+											  </tr>
+											  <tr>
+												<th>max</th>  
+												<td>2020.000000</td>
+												<td>791.425000</td>
+												<td>64192.500000</td>
+												<td>232749.000000</td>
+											  </tr>
+											</tbody>
+										  </table>
+									</section>
+							</div>
+					</section>
+
+					<!-- About Section -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<div id="About"><h2>About</h2></div>
+							<div class="index align-left">
+								
+								<!-- Text -->
+									<section>
+										<header>
+											<h3>See also</h3>
+										</header>
+										<div class="content">
+			
+												<li><a href="https://www.cpuc.ca.gov/general.aspx?id=1778">Official CPUC website</a></i>
+												<li><a href="http://calbroadbanddrivetest.blogspot.com/"><i>Mobile Broadband Drive-Test Blog Site</i></a></li>
+												<li><a href="https://github.com/ethanccastro/CPUC-RTT"><i>RTT Network Github</i></a></li>
+												<br>
+												<i>For more information from CPUC and their data points:</i>
+												<li><a href="mailto:calspeed@cpuc.ca.gov">calspeed@cpuc.ca.gov</a></li>
+												<br>
+												<i>Contact for details:</i><br>
+												<li><a href="mailto:jesugomez@csumb.edu">jesugomez@csumb.edu</a></li>
+												<li><a href="mailto:jelopez-hernandez@csumb.edu">jelopez-hernandez@csumb.edu</a></li>
+												<li><a href="mailto:ethcastro@csumb.edu">ethcastro@csumb.edu</a></li>
+												<li><a href="mailto:eguerra@csumb.edu">eguerra@csumb.edu</a></li>
+			
+										</div>
+									</section>
+			
+								<!-- Heading -->
+									<section>
+										<div class="content">
+			
+											<li><a href="#About RTT Network"> About RTT Network</a></li>
+											<li><a href="#Source">Methods</a></li>
+											<li><a href="#Definitions">Definitions</a></li>
+											<li>
+												<a href="#Data">Data</a>
+												<ul>
+													<li><a href="#Original">Original Source</a></li>
+													<li><a href="#Main">Main Dataframe</a></li>
+													<li><a href="#Top">Top Values</a></li>
+												</ul>
+											</li>
+			
+									</section>
+									<!-- About RTT Network -->
+									<section>
+										<header>
+											<div id="About RTT Network"><h3>About RTT Network</h3></div>
+										</header>
+										<div class="content">
+											RTT Network manually analyzes, aggregate, and visualize data from the
+											California Public Utilities Comission (CPUC) to provide information regarding
+											the four major carriers (Sprint, Verizon, T-Mobile, AT&T) in the United States.
+											<br><br>
+											Our data is: replicable, reliable, and trusted. We encourage our audience to use the
+											information to help make guided decisions on their choice of service, or inspire to create their
+											own statistics and creativity to further enhance the graphs that are displayed.
+										</div>
+									</section>
+									<!-- Methods -->
+									<section>
+										<header>
+											<div id="Source"><h3>Methods</h3></div>
+										</header>
+										<div class="content">
+											Part of our work consists of monitoring the years from 2012-2020
+											from all of the major carriers in the west and east coasts of the United States.
+											We sourced our data from the CPUC website and carefully crafted a large datasheet
+											that contains all the information downloaded from the website. There were little to no
+											modifications on the actual data, as we hoped that other people would be able to find 
+											themselves creating their own visualizations.
+											<br><br>
+											The data was divided into several dataframes that originated from all the combined
+											CSV files. We looked at the top 10%, 20%... 50% of the best values for each of the RTT and
+											TCP metrics to find trends and correlations to grab insight about the carriers.
+										</div>
+									</section>
+									<!-- Definitions -->
+									<section>
+										<header>
+											<div id="Definitions"><h3>Definitions</h3></div>
+										</header>
+										<div class="content">
+			
+											<dl>
+												<dt>Round-trip time (RTT)</dt>
+												<dd>
+													<p>The duration in ms for a network request
+														to go from a starting point and back again. Also known as ping, this metric
+														can inform phone users how fast they are able to communicate and navigate through the internet, applications, or anything that uses their
+														service. The speed is determined by how fast in ms the data is received and sent back. The lower in ms, the faster the speed gets.</p>
+												</dd>
+												<dt>Transmission Control Protocol (TCP)</dt>
+												<dd>
+													<p>One of the main protocols of the
+														Internet protocol suite. It enables applications and devices to transmit data by
+														dividing messages into packets which then can be forwarded through switches and routers to
+														the destination. Because these applications and devices are packing and unpacking the data,
+														TCP is divided into upload and download speed. Upload speed is when a device is sending a message,
+														and download speed is when a device is receiving a message. It is important to have both of these to be as
+														high as it can be.</p>
+												</dd>
+												<dt>Difference</dt>
+												<dd>
+													<p>TCP needs to determine RTT for good performance. For each connection, TCP will 
+														continiously estimate the RTT and adjust how the messages are sent for each packet that is read. 
+														The most important distinction regarded the ability to question whether RTT or TCP can determine
+														the accuracy in which data is sent is RTT's role in assisting TCP's computed time to send out packets.
+														RTT Network recommends seeing the correlation between RTT and TCP by comparing several graphs together. One trend
+														to look out for is how the values increase or decrease. Intuitively, if they were to correlate, RTT would decrease
+														and TCP would increase.</p>
+												</dd>
+												<dt>California Public Utilities Comission (CPUC)</dt>
+												<dd>
+													<p>A department of California
+														utilizing CalSpeed project teams to use smartphones and tablets at 2,000 points to measure
+														mobile broadbant service availability. Their data sheets contain summarized data that is the average of the
+														160 individual tests for each metric (RTT and TCP) measured at each point tested. Their data
+														is available for public use and modification.</p>
+												</dd>
+											</dl>
+			
+										</div>
+									</section>
+								<!-- Data -->
+									<section>
+										<header>
+											<div id="Data"><h3>Data</h3></div>
+										</header>
+										<div class="content">
+			
+											<p>These are all data sourced from the original CPUC website. All file names correspond
+												to the years that the datapoints were recorded. Atrribute information varies as new datasheets
+												integrated more information, but most
+												of the datasheets contain columns. After combining all the datasheets, one contains all a master dataframe
+											with all the information, along with separate datasheets containing only top values.</p>
+											<div id="Original"><h4>Original</h4></div>
+											<ul>
+												<li><a href="{{ url_for('download', filename="Fall2012.csv") }}">Fall2012</a></li>
+												<li><a href="{{ url_for('download', filename="Fall2013.csv") }}">Fall2013</a></li>
+												<li><a href="{{ url_for('download', filename="Fall2014.csv") }}">Fall2014</a></li>
+												<li><a href="{{ url_for('download', filename="Fall2016.csv") }}">Fall2016</a></li>
+												<li><a href="{{ url_for('download', filename="Fall2017.csv") }}">Fall2017</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2012.csv") }}">Spring2012</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2013.csv") }}">Spring2013</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2014.csv") }}">Spring2014</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2015.csv") }}">Spring2015</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2016.csv") }}">Spring2016</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2017-1.csv") }}">Spring2017-1</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2017-2.csv") }}">Spring2017-2</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2017-3.csv") }}">Spring2017-3</a></li>
+												<li><a href="{{ url_for('download', filename="Spring2017-4.csv") }}">Spring2017-4</a></li>
+												<li><a href="{{ url_for('download', filename="Summer2020.csv") }}">Summer2020</a></li>
+												<li><a href="{{ url_for('download', filename="Winter2015-2016.csv") }}">Winter2015-16</a></li>
+											</ul>
+			
+											<div id="Main"><h4>Main Dataframe</h4></div>
+											<ul>
+												<li><a href="{{ url_for('download', filename="mainDataFrame.csv") }}">Dataframe</a></li>
+											</ul>
+											<div id="Top"><h4>Top Values</h4></div>
+											<ul>
+												RTT
+												<li><a href="{{ url_for('download', filename="rtt10.csv") }}">West RTT Top 10%</a></li>
+												<li><a href="{{ url_for('download', filename="rtt20.csv") }}">West RTT Top 20%</a></li>
+												<li><a href="{{ url_for('download', filename="rtt30.csv") }}">West RTT Top 30%</a></li>
+												<li><a href="{{ url_for('download', filename="rtt40.csv") }}">West RTT Top 40%</a></li>
+												<li><a href="{{ url_for('download', filename="rtt50.csv") }}">West RTT Top 50%</a></li>
+												<br><br>
+												TCP Upload
+												<br><br>
+												<li><a href="{{ url_for('download', filename="tcpup10.csv") }}">West TCP Upload Top 10%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpup20.csv") }}">West TCP Upload Top 20%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpup30.csv") }}">West TCP Upload Top 30%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpup40.csv") }}">West TCP Upload Top 40%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpup50.csv") }}">West TCP Upload Top 50%</a></li>
+												<br><br>
+												TCP Download
+												<br><br>
+												<li><a href="{{ url_for('download', filename="tcpdown10.csv") }}">West TCP Download Top 10%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpdown20.csv") }}">West TCP Download Top 20%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpdown30.csv") }}">West TCP Download Top 30%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpdown40.csv") }}">West TCP Download Top 40%</a></li>
+												<li><a href="{{ url_for('download', filename="tcpdown50.csv") }}">West TCP Download Top 50%</a></li>
+											</ul>
+										</div>
+									</section>
+				
 
 		
 

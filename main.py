@@ -25,30 +25,8 @@ def default():
     return render_template('homepage.html')
 
 
-@app.route('/westRTT')
-def westRtt():
-    return render_template('westRTT.html')
 
-
-@app.route('/westTCP')
-def westTCP():
-    return render_template('westTCP.html')
-
-
-@app.route('/eastRTT')
-def eastRtt():
-    return render_template('eastRTT.html')
-
-
-@app.route('/eastTCP')
-def eastTCP():
-    return render_template('eastTCP.html')
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-@app.route('/about/<filename>', methods=['GET'])
+@app.route('/<filename>', methods=['GET'])
 def download(filename):
     return send_file('data/oldData/' + filename,
             mimetype='text/csv',
