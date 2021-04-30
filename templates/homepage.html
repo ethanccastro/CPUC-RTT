@@ -129,8 +129,48 @@
 										</header>
 										<div class="content">
 
-											Insert interactive graphs here
+                                            <div class="container p-0">
+                                                <div class="row text-center py-0 m-0"">
+                                            
+                                                    <div class=" col border-end">
+                                        
+                                                        <iframe id="10Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                                            src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe>
+                                                
+                                                
+                                                        <iframe id="20Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                                            src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe>
+                                                
+                                                
+                                                        <iframe id="50Wgraph" width="630" height="500" frameborder="0" scrolling="no"
+                                                            src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
+                                                
+                                                    </div>
+                                            
+                                                    <div class="col pt-5 mt-0">
+                                                
+                                                        <h5> Click a button to change top percentage of data used </h5>
+                                                
+                                                        <button id="buttonWTen" class="btn btn-primary my-4 mx-5" type="button"> 10% </button>
+                                                        <button id="buttonWTwenty" class="btn btn-primary my-4 mx-3" type="button"> 20% </button>
+                                                        <button id="buttonWFifty" class="btn btn-primary my-4 mx-5" type="button"> 50% </button>
+                                                
+                                                        <hr>
+                                                        
+                                                        <h6>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
+                                                            keffiyeh
+                                                            helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h6>
+                                                
+                                                        <br>
+                                                
+                                                        <h5 class="font-italic"> How to read the graph:</h5>
+                                                
+                                                    </div>
+                                            
+                                                </div>
+                                            </div>
 
+                                        </div>
 									</section>
 									<section>
 										<div id="RTTInfo"></div>
@@ -889,6 +929,8 @@ tcpdown.describe()
 			<script src="static/js/breakpoints.min.js"></script>
 			<script src="static/js/util.js"></script>
 			<script src="static/js/main.js"></script>
+            <script src="../static/js/graphTransition.js"></script>
+            <script src="../static/js/windowScroll.js"></script>
 
 	</body>
 </html>
