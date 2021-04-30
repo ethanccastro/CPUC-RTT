@@ -8598,3 +8598,8 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+.text-center {
+	justify-content: center;
+	text-align: center;
+}
