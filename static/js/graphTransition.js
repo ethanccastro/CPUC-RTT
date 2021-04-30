@@ -1,4 +1,4 @@
-
+// WEST Graphs
 function westRttTcpTenPercentFunc() {
     $('#10Wgraph').show(1100, "linear");
     $('#20Wgraph').hide(700, "linear");
