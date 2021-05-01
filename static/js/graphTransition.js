@@ -4,7 +4,7 @@ function westRttTcpTenPercentFunc() {
     $('#10Wgraph').show(1100, "linear");
     $('#20Wgraph').hide(700, "linear");
     $('#50Wgraph').hide(700, "linear");
-    $('.col h4').text(' Top 10% West RTT/TCP Dataaaaah');
+    $('.col h4').text(' Top 10% West RTT/TCP Data ');
     $('.col h6').text('In a time of crisis, ask yourself, what will Napoleon do? He would probably dip his croissant in coffee and invade Russia. Not very relevant here because he was never trapped in an underground basement filled with blood thirsty aliens! Thats right ladies and gentlemen, you are screwed');
 }
 
@@ -70,17 +70,6 @@ $("#buttonETwenty").click(function () {
 $("#buttonEFifty").click(function () {
     setTimeout(eastRttTcpFiftyPercentFunc);
 });
-
-/// LOADING FUNCTIONS ///
-function loadEastGraphFunction() {
-    $('#20Egraph').hide();
-    $('#50Egraph').hide();
-}
-
-function loadWestGraphFunction() {
-    $('#20Wgraph').hide();
-    $('#50Wgraph').hide();
-}
 
 // A $( document ).ready() block.
 $(document).ready(function () {
