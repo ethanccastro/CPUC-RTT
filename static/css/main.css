@@ -89,6 +89,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth;		
 	}
 
 	*, *:before, *:after {
@@ -8602,4 +8603,57 @@ input, select, textarea {
 .text-center {
 	justify-content: center;
 	text-align: center;
+}
+
+/*** Navigation Bar ***/
+nav {
+  background-color: rgba(0, 0, 0, 0);
+}
+.navbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+}
+
+.navTextColor  {
+  color: white !important;
+  font-size: 1.5em;
+  text-decoration: none !important;
+  
+}
+
+a .navTextColor:hover {
+  text-decoration: underline !important;
+}
+
+.navbar-nav-right {
+	/* float: right !important; */
+	position: absolute;
+  	right: 0;
+	padding-right: 100px !important;
+	padding-bottom: 100px !important;
+	text-decoration: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+  float: none;
+}
+
+.rttNetwork {
+  /* puts rtt network title next to logo */
+  display: inline;
+  position: relative;
+  color: white;
+  padding-top: 0px;
+}
+
+.no-underline {
+	text-decoration: transparent !important;
+	padding-left: 30px;
 }

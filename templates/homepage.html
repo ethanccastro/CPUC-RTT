@@ -14,13 +14,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="static/css/main.css" />
 		<link rel="stylesheet" href="static/css/df_style.css" />
+		<link rel="icon" href="../static/images/logoCropInverted.png">
 		<style>
 			ul {
                 padding-left:50px;
             }
 		</style>
 	</head>
-	<body class="is-preload">
+	<body id="top-of-page" class="is-preload">
+
+		<!-- Navigation Bar -->
+		<nav class="navbar">
+			<a class="no-underline" href="#top-of-page">
+				<img src="../static/images/logoCropInverted.png" width="10%" style="padding-top: 10px; padding-left: 10px;">
+				<h2 class="rttNetwork"> RTT NETWORK </h2>
+			</a>
+			<ul class="navbar-nav-right">
+				<li class="nav-item">
+					<a class="navTextColor" href="#rttSection"> RTT </a>
+				</li>
+				<li class="nav-item">
+					<a class="navTextColor" href="#tcpSection"> TCP </a>
+				</li>
+				<li class="nav-item">
+					<a class="navTextColor" href="#aboutSection"> About </a>
+				</li>
+			</ul>
+		</nav>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
@@ -82,7 +102,7 @@
 					</section>
 					<!-- RTT Section -->
 					<section class="wrapper style1 align-center">
-						<div class="inner">
+						<div id="rttSection" class="inner">
 							<div id="RTT"><h2>RTT</h2></div>
 							<div class="index align-left">
 								
@@ -134,7 +154,7 @@
                                                 <iframe id="50Wgraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
                                             </div>
 
-                                            <div class="text-center">
+                                            <div id="westRTT" class="text-center">
                                                 <h5> Click a button to change top percentage of data used </h5>
                                             
                                                 <button id="buttonWTen" type="button"> 10% </button>
@@ -143,9 +163,7 @@
                                             
                                                 <hr>
                                                 <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
-                                                <br>
 
-                                                <h5 class="font-italic"> How to read the graph:</h5> 
                                             </div>
 
 											<!-- East RTT server -->
@@ -155,7 +173,7 @@
                                                 <iframe id="50Egraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/9.embed"></iframe>
                                             </div>
 
-                                            <div class="text-center">
+                                            <div id="eastRTT" class="text-center">
                                                 <h5> Click a button to change top percentage of data used </h5>
                                             
                                                 <button id="buttonETen" type="button"> 10% </button>
@@ -164,9 +182,7 @@
                                             
                                                 <hr>
                                                 <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
-                                                <br>
 
-                                                <h5 class="font-italic"> How to read the graph:</h5> 
                                             </div>
 
                                         </div>
@@ -368,7 +384,7 @@ rtt.describe()
 					</section>
 
 					<section class="wrapper style1 align-center">
-						<div class="inner">
+						<div id="tcpSection" class="inner">
 							<div id="TCP"><h2>TCP</h2></div>
 							<div class="index align-left">
 								
@@ -419,7 +435,7 @@ rtt.describe()
 												<!-- wAvg50_RTT -->
 												<iframe id="50WUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/1.embed"></iframe>
                                             </div>
-											<div class="text-center">
+											<div id="westTCP" class="text-center">
 												<h5> Click a button to change top percentage of data used </h5>
 											
 												<button id="buttonWUDTen" type="button"> 10% </button>
@@ -428,9 +444,7 @@ rtt.describe()
 											
 												<hr>
 												<h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
-												<br>
 
-												<h5 class="font-italic"> How to read the graph:</h5> 
 											</div>
 											
 											<!-- East upload/download server -->
@@ -443,7 +457,7 @@ rtt.describe()
 												<iframe id="50EUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/37.embed"></iframe>
                                             </div>
 											
-                                            <div class="text-center">
+                                            <div id="eastTCP" class="text-center">
                                                 <h5> Click a button to change top percentage of data used </h5>
                                             
                                                 <button id="buttonEUDTen" type="button"> 10% </button>
@@ -452,9 +466,7 @@ rtt.describe()
                                             
                                                 <hr>
                                                 <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
-                                                <br>
 
-                                                <h5 class="font-italic"> How to read the graph:</h5> 
                                             </div>
 										</div>
 									</section>
@@ -735,7 +747,7 @@ tcpdown.describe()
 
 					<!-- About Section -->
 					<section class="wrapper style1 align-center">
-						<div class="inner">
+						<div id="aboutSection" class="inner">
 							<div id="About"><h2>About</h2></div>
 							<div class="index align-left">
 								
