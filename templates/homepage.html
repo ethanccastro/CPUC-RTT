@@ -194,11 +194,25 @@
 									</section>
 									<section>
 										<div id="RTTInfo"></div>
+										<header>
+											<h3>Information</h3>
+										</header>
 										<div class="content">
-										Contains all the preprocessing needed to create the Dataframe
+			
+										<br><br>
+										<article>
+											<button id="myBtn" class="button small">RTT Code</button>
+
+												<!-- The Modal -->
+												<div id="myModal" class="modal">
+
+												<!-- Modal content -->
+												<div class="modal-content">
+													<span class="close">&times;</span>
+													Contains all the preprocessing needed to create the Dataframe
 										that can aggregate the mean based on the dates and providers.
-										<pre>
-											<code>
+													<pre>
+														<code>
 import numpy as np
 import pandas as pd
 import glob as glob
@@ -210,8 +224,8 @@ df = pd.read_csv('mainDF.csv')
 
 # replaces rows where TCP has no connection with 0
 df = df.replace(['Quit by User', 'no effective service', ' no effective service', 'bad_output', 'connect_error1', 
-                 ' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
-                 ' NA'], 0)
+					' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
+					' NA'], 0)
 # replaces rows where RTT has no connection with NaN
 df['wRttAvg'] = df['wRttAvg'].replace(0, np.nan)
 
@@ -242,19 +256,17 @@ df = df.drop(['wTCPUp1', 'wTCPUp2', 'wTCPDown1', 'wTCPDown2'], axis=1)
 
 # remove rows containing "Tablet" as device
 df = df[~df['DeviceType'].str.contains('Netbook')]
-
-
-												</code>
-										</pre>
-										Creates a new dataframe looking at the top 10% of values.
-
-										<pre>
-											<code>
+			
+			
+															</code>
+														</pre>
+														Creates a new dataframe looking at the top 10% of values.
+														<pre>
+															<code>
 rtt = df.loc[(df['wRttAvg'] != 0)].nsmallest(math.floor((len(df)*.10)), 'wRttAvg')
-
-										</code>
-										</pre>
-										Information about rtt dataframe
+															</code>
+														</pre>
+														Information about rtt dataframe
 
 										<pre>
 											<code>
@@ -383,6 +395,12 @@ rtt.describe()
 											  </tr>
 											</tbody>
 										  </table>
+												</div>
+													</div>
+										</article>
+
+										
+										
 									</section>
 							</div>
 					</section>
@@ -494,11 +512,23 @@ rtt.describe()
 									</section>
 									<section>
 										<div id="TCPInfo"></div>
+										<header>
+											<h3>Information</h3>
+										</header>
 										<div class="content">
-										Contains all the preprocessing needed to create the Dataframe
-										that can aggregate the mean based on the dates and providers.
-										<pre>
-											<code>
+											<article>
+												<button id="myBtn1" class="button small">TCP Code</button>
+	
+													<!-- The Modal -->
+													<div id="myModal1" class="modal">
+	
+													<!-- Modal content -->
+													<div class="modal-content">
+														<span class="close">&times;</span>
+														Contains all the preprocessing needed to create the Dataframe
+														that can aggregate the mean based on the dates and providers.
+														<pre>
+															<code>
 import numpy as np
 import pandas as pd
 import glob as glob
@@ -510,8 +540,8 @@ df = pd.read_csv('mainDF.csv')
 
 # replaces rows where TCP has no connection with 0
 df = df.replace(['Quit by User', 'no effective service', ' no effective service', 'bad_output', 'connect_error1', 
-                 ' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
-                 ' NA'], 0)
+					' connect_error1', 'connect_error2', ' connect_error2', ' timeout', 'timeout', 
+					' NA'], 0)
 # replaces rows where RTT has no connection with NaN
 df['wRttAvg'] = df['wRttAvg'].replace(0, np.nan)
 
@@ -542,227 +572,229 @@ df = df.drop(['wTCPUp1', 'wTCPUp2', 'wTCPDown1', 'wTCPDown2'], axis=1)
 
 # remove rows containing "Tablet" as device
 df = df[~df['DeviceType'].str.contains('Netbook')]
-												</code>
-										</pre>
-										Creates a new dataframe looking at the top 10% of values.
-
-										<pre>
-											<code>
+																</code>
+														</pre>
+														Creates a new dataframe looking at the top 10% of values.
+				
+														<pre>
+															<code>
 tcpup = df.nlargest(math.floor((len(df)*.10)), 'wTCPUp')
 tcpdown = df.nlargest(math.floor((len(df)*.10)), 'wTCPDown')
-										</code>
-										</pre>
-										Information about tcpup/tcpdown dataframe
-
-										<pre>
-											<code>
+														</code>
+														</pre>
+														Information about tcpup/tcpdown dataframe
+				
+														<pre>
+															<code>
 tcpup.info()
 tcpdown.info()
-										</code>
-										</pre>
-										<table border="1" class="dataframe mystyle">
-											<thead>
-											  <tr style="text-align: center;">
-												<th></th>
-												<th>Column</th>
-												<th>Non-Null</th>
-												<th>Count</th>
-												<th>Dtype</th>		
-											  </tr>
-											</thead>
-											<tbody>
-											  <tr>
-												<th>0</th>
-												<td>Date</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>int64</td>
-											  </tr>
-											  <tr>
-												<th>1</th>
-												<td>Provider</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>object</td>
-											  </tr>
-											  <tr>
-												<th>2</th>
-												<td>DeviceType</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>object</td>
-											  </tr>
-											  <tr>
-												<th>3</th>
-												<td>wRttAvg</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>float64</td>
-											  </tr>
-											  <tr>
-												<th>4</th>
-												<td>wTCPUp</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>float64</td>
-											  </tr>
-											  <tr>
-												<th>5</th>
-												<td>wTCPDown</td>
-												<td>non-null</td>
-												<td>13444</td>
-												<td>float64</td>
-											  </tr>
-											</tbody>
-										  </table>
-										<pre>
-											<code>
+														</code>
+														</pre>
+														<table border="1" class="dataframe mystyle">
+															<thead>
+															  <tr style="text-align: center;">
+																<th></th>
+																<th>Column</th>
+																<th>Non-Null</th>
+																<th>Count</th>
+																<th>Dtype</th>		
+															  </tr>
+															</thead>
+															<tbody>
+															  <tr>
+																<th>0</th>
+																<td>Date</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>int64</td>
+															  </tr>
+															  <tr>
+																<th>1</th>
+																<td>Provider</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>object</td>
+															  </tr>
+															  <tr>
+																<th>2</th>
+																<td>DeviceType</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>object</td>
+															  </tr>
+															  <tr>
+																<th>3</th>
+																<td>wRttAvg</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>float64</td>
+															  </tr>
+															  <tr>
+																<th>4</th>
+																<td>wTCPUp</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>float64</td>
+															  </tr>
+															  <tr>
+																<th>5</th>
+																<td>wTCPDown</td>
+																<td>non-null</td>
+																<td>13444</td>
+																<td>float64</td>
+															  </tr>
+															</tbody>
+														  </table>
+														<pre>
+															<code>
 tcpup.describe()
-										</code>
-										</pre>
-										<table border="1" class="dataframe mystyle">
-											<thead>
-											  <tr style="text-align: center;">
-												<th></th>
-												<th>Date</th>
-												<th>wRttAvg</th>
-												<th>wTCPUp</th>
-												<th>wTCPDown</th>		
-											  </tr>
-											</thead>
-											<tbody>
-											  <tr>
-												<th>count</th>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-											  </tr>
-											  <tr>
-												<th>mean</th>
-												<td>2016.786299</td>
-												<td>81.920302</td>
-												<td>20643.281389</td>
-												<td>34997.250368</td>
-											  </tr>
-											  <tr>
-												<th>std</th>
-												<td>1.849565</td>
-												<td>34.797107</td>
-												<td>7127.195264</td>
-												<td>26157.095554</td>
-											  </tr>
-											  <tr>
-												<th>min</th>
-												<td>2012.000000</td>
-												<td>0.000000</td>
-												<td>15194.000000</td>
-												<td>124.500000</td>
-											  </tr>
-											  <tr>
-												<th>25%</th>
-												<td>2016.000000</td>
-												<td>62.704750</td>
-												<td>16666.500000</td>
-												<td>21307.875000</td>
-											  </tr>
-											  <tr>
-												<th>50%</th>
-												<td>2016.000000</td>
-												<td>76.626000</td>
-												<td>18446.000000</td>
-												<td>28935.250000</td>
-											  </tr>
-											  <tr>
-												<th>75%</th>  
-												<td>2017.000000</td>
-												<td>88.197500</td>
-												<td>21356.750000</td>
-												<td>38638.625000</td>
-											  </tr>
-											  <tr>
-												<th>max</th>  
-												<td>2020.000000</td>
-												<td>791.425000</td>
-												<td>64192.500000</td>
-												<td>232749.000000</td>
-											  </tr>
-											</tbody>
-										  </table>
-										  <pre>
-											<code>
+														</code>
+														</pre>
+														<table border="1" class="dataframe mystyle">
+															<thead>
+															  <tr style="text-align: center;">
+																<th></th>
+																<th>Date</th>
+																<th>wRttAvg</th>
+																<th>wTCPUp</th>
+																<th>wTCPDown</th>		
+															  </tr>
+															</thead>
+															<tbody>
+															  <tr>
+																<th>count</th>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+															  </tr>
+															  <tr>
+																<th>mean</th>
+																<td>2016.786299</td>
+																<td>81.920302</td>
+																<td>20643.281389</td>
+																<td>34997.250368</td>
+															  </tr>
+															  <tr>
+																<th>std</th>
+																<td>1.849565</td>
+																<td>34.797107</td>
+																<td>7127.195264</td>
+																<td>26157.095554</td>
+															  </tr>
+															  <tr>
+																<th>min</th>
+																<td>2012.000000</td>
+																<td>0.000000</td>
+																<td>15194.000000</td>
+																<td>124.500000</td>
+															  </tr>
+															  <tr>
+																<th>25%</th>
+																<td>2016.000000</td>
+																<td>62.704750</td>
+																<td>16666.500000</td>
+																<td>21307.875000</td>
+															  </tr>
+															  <tr>
+																<th>50%</th>
+																<td>2016.000000</td>
+																<td>76.626000</td>
+																<td>18446.000000</td>
+																<td>28935.250000</td>
+															  </tr>
+															  <tr>
+																<th>75%</th>  
+																<td>2017.000000</td>
+																<td>88.197500</td>
+																<td>21356.750000</td>
+																<td>38638.625000</td>
+															  </tr>
+															  <tr>
+																<th>max</th>  
+																<td>2020.000000</td>
+																<td>791.425000</td>
+																<td>64192.500000</td>
+																<td>232749.000000</td>
+															  </tr>
+															</tbody>
+														  </table>
+														  <pre>
+															<code>
 tcpdown.describe()
-										</code>
-										</pre>
-										<table border="1" class="dataframe mystyle">
-											<thead>
-											  <tr style="text-align: center;">
-												<th></th>
-												<th>Date</th>
-												<th>wRttAvg</th>
-												<th>wTCPUp</th>
-												<th>wTCPDown</th>		
-											  </tr>
-											</thead>
-											<tbody>
-											  <tr>
-												<th>count</th>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-												<td>13444.000000</td>
-											  </tr>
-											  <tr>
-												<th>mean</th>
-												<td>2017.294927</td>
-												<td>81.114935</td>
-												<td>15973.411106</td>
-												<td>47726.691015</td>
-											  </tr>
-											  <tr>
-												<th>std</th>
-												<td>2.189790</td>
-												<td>48.074959</td>
-												<td>9667.741668</td>
-												<td>25157.416915</td>
-											  </tr>
-											  <tr>
-												<th>min</th>
-												<td>2012.000000</td>
-												<td>0.000000</td>
-												<td>603.700000</td>
-												<td>29373.000000</td>
-											  </tr>
-											  <tr>
-												<th>25%</th>
-												<td>2016.000000</td>
-												<td>51.342500</td>
-												<td>9693.125000</td>
-												<td>32969.375000</td>
-											  </tr>
-											  <tr>
-												<th>50%</th>
-												<td>2017.000000</td>
-												<td>74.137000</td>
-												<td>14967.250000</td>
-												<td>37755.750000</td>
-											  </tr>
-											  <tr>
-												<th>75%</th>  
-												<td>2020.000000</td>
-												<td>90.191500</td>
-												<td>19776.500000</td>
-												<td>50109.375000</td>
-											  </tr>
-											  <tr>
-												<th>max</th>  
-												<td>2020.000000</td>
-												<td>791.425000</td>
-												<td>64192.500000</td>
-												<td>232749.000000</td>
-											  </tr>
-											</tbody>
-										  </table>
+														</code>
+														</pre>
+														<table border="1" class="dataframe mystyle">
+															<thead>
+															  <tr style="text-align: center;">
+																<th></th>
+																<th>Date</th>
+																<th>wRttAvg</th>
+																<th>wTCPUp</th>
+																<th>wTCPDown</th>		
+															  </tr>
+															</thead>
+															<tbody>
+															  <tr>
+																<th>count</th>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+																<td>13444.000000</td>
+															  </tr>
+															  <tr>
+																<th>mean</th>
+																<td>2017.294927</td>
+																<td>81.114935</td>
+																<td>15973.411106</td>
+																<td>47726.691015</td>
+															  </tr>
+															  <tr>
+																<th>std</th>
+																<td>2.189790</td>
+																<td>48.074959</td>
+																<td>9667.741668</td>
+																<td>25157.416915</td>
+															  </tr>
+															  <tr>
+																<th>min</th>
+																<td>2012.000000</td>
+																<td>0.000000</td>
+																<td>603.700000</td>
+																<td>29373.000000</td>
+															  </tr>
+															  <tr>
+																<th>25%</th>
+																<td>2016.000000</td>
+																<td>51.342500</td>
+																<td>9693.125000</td>
+																<td>32969.375000</td>
+															  </tr>
+															  <tr>
+																<th>50%</th>
+																<td>2017.000000</td>
+																<td>74.137000</td>
+																<td>14967.250000</td>
+																<td>37755.750000</td>
+															  </tr>
+															  <tr>
+																<th>75%</th>  
+																<td>2020.000000</td>
+																<td>90.191500</td>
+																<td>19776.500000</td>
+																<td>50109.375000</td>
+															  </tr>
+															  <tr>
+																<th>max</th>  
+																<td>2020.000000</td>
+																<td>791.425000</td>
+																<td>64192.500000</td>
+																<td>232749.000000</td>
+															  </tr>
+															</tbody>
+														  </table>
+											</article>
+										
 									</section>
 							</div>
 					</section>
