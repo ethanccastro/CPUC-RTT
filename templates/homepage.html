@@ -69,7 +69,7 @@
 							</ul>
 						</div>
 						<div class="image">
-							<img src="static/images/spotlight01.jpg" alt="" />
+							<img src="static/images/rttSpotlight.jpg" alt="" />
 						</div>
 					</section>
 
@@ -83,7 +83,7 @@
 							</ul>
 						</div>
 						<div class="image">
-							<img src="static/images/spotlight02.jpg" alt="" />
+							<img src="static/images/tcpSpotlight.jpg" alt="" />
 						</div>
 					</section>
 
@@ -97,7 +97,7 @@
 							</ul>
 						</div>
 						<div class="image">
-							<img src="static/images/spotlight03.jpg" alt="" />
+							<img src="static/images/logo.png" alt="" />
 						</div>
 					</section>
 					<!-- RTT Section -->
@@ -134,6 +134,12 @@
 												the times would continue to decrease.
 											</p>
 											<br><br>
+											<span class="image fit"><img src="static/images/timePlotRTT.png" alt=""></span>
+											<p>By 2020, Verizon topped out as the best provider with the lowest RTT at around 45ms. T-Mobile and 
+												Sprint appears to be trending upwards, meanwhile AT&T and Verizon trends downwards. There was some slight 
+												discrepancies from years 2014-2016 as most carriers faced lower RTT speeds but it smoothes out onwards.
+											</p>
+											<br><br>
 											<span class="image fit"><img src="static/images/densityPlotRTT.png" alt=""></span>
 											Some of the values of the RTT time over the years for each provider. Clearly, Verizon has
 											maintained the best speeds. At around 47 ms, Verizon can claim that they had the best speeds 
@@ -161,8 +167,7 @@
                                                 <button id="buttonWTwenty" type="button"> 20% </button>
                                                 <button id="buttonWFifty" type="button"> 50% </button>
                                             
-                                                <hr>
-                                                <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
+                                               
 
                                             </div>
 
@@ -180,8 +185,7 @@
                                                 <button id="buttonETwenty" type="button"> 20% </button>
                                                 <button id="buttonEFifty" type="button"> 50% </button>
                                             
-                                                <hr>
-                                                <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
+                                        
 
                                             </div>
 
@@ -414,7 +418,29 @@ rtt.describe()
 											<br>
 											<span class="image fit"><img src="static/images/timePltTCPDown.png" alt=""></span>
 											<p>
-												With TCP Down, 2012-2017 speeds stayed someone stagnant. Then, it follows a linear line trending upwards.
+												With TCP Down, 2012-2017 speeds stayed somewhat stagnant. Then, it follows a linear line trending upwards.
+											</p>
+											<br><br>
+											<span class="image fit"><img src="static/images/TCPUPlinePlot.png" alt=""></span>
+											<p>
+												All carriers seem to improve their speeds throughout the years.
+											</p>
+											<br><br>
+											<span class="image fit"><img src="static/images/TCPDOWNlinePlot.png" alt=""></span>
+											<p>
+												One outlier among all the carriers is Sprint's Download speed, which appears to be trending downwards.
+												
+											</p>
+											<br><br>
+											<span class="image fit"><img src="static/images/densityPlotTCPUP.png" alt=""></span>
+											<p>
+												All the values are in the range of about 20000 amongst all carriers except Sprint whom
+												bottoms out up to 40000.
+											</p>
+											<br><br>
+											<span class="image fit"><img src="static/images/densityPlotTCPDOWN.png" alt=""></span>
+											<p>
+												Most of Sprint's values fall around the 10000 range, while others are spread around the 20000 mark.
 											</p>
 											<br><br>
 
@@ -442,8 +468,6 @@ rtt.describe()
 												<button id="buttonWUDTwenty" type="button"> 20% </button>
 												<button id="buttonWUDFifty" type="button"> 50% </button>
 											
-												<hr>
-												<h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
 
 											</div>
 											
@@ -464,8 +488,6 @@ rtt.describe()
                                                 <button id="buttonEUDTwenty" type="button"> 20% </button>
                                                 <button id="buttonEUDFifty" type="button"> 50% </button>
                                             
-                                                <hr>
-                                                <h4>Description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</h4>
 
                                             </div>
 										</div>
@@ -934,43 +956,12 @@ tcpdown.describe()
 											</ul>
 										</div>
 									</section>
-				
-
-		
-
-				<!-- Contact -->
-					<section class="wrapper style1 align-center">
-						<div class="inner medium">
-							<h2>Issues? Contact us:</h2>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field half">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" value="" />
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" value="" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-								</div>
-								<ul class="actions special">
-									<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-
-						</div>
-					</section>
 
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands style1 fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="https://github.com/ethanccastro/CPUC-RTT" class="icon brands style1 fa-github"><span class="label">Github</span></a></li>
 							</ul>
 						</div>
 					</footer>
