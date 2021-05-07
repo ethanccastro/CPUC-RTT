@@ -835,13 +835,7 @@ tcpdown.describe()
 											<li><a href="#About RTT Network"> About RTT Network</a></li>
 											<li><a href="#Source">Methods</a></li>
 											<li><a href="#Definitions">Definitions</a></li>
-											<li>
-												<a href="#Data">Data</a>
-												<ul>
-													<li><a href="#Original">Original Source</a></li>
-													<li><a href="#Main">Main Dataframe</a></li>
-													<li><a href="#Top">Top Values</a></li>
-												</ul>
+											<li><a href="#Data">Data</a>
 											</li>
 			
 									</section>
@@ -931,13 +925,21 @@ tcpdown.describe()
 											<div id="Data"><h3>Data</h3></div>
 										</header>
 										<div class="content">
-			
-											<p>These are all data sourced from the original CPUC website. All file names correspond
-												to the years that the datapoints were recorded. Atrribute information varies as new datasheets
-												integrated more information, but most
-												of the datasheets contain columns. After combining all the datasheets, one contains all a master dataframe
-											with all the information, along with separate datasheets containing only top values.</p>
-											<div id="Original"><h4>Original</h4></div>
+											<article>
+												<p>These are all data sourced from the original CPUC website. All file names correspond
+													to the years that the datapoints were recorded. Atrribute information varies as new datasheets
+													integrated more information, but most
+													of the datasheets contain columns. After combining all the datasheets, one contains all a master dataframe
+												with all the information, along with separate datasheets containing only top values. (Only from west servers)</p>
+												<button id="myBtn2" class="button small">Data</button>
+	
+													<!-- The Modal -->
+													<div id="myModal2" class="modal">
+	
+													<!-- Modal content -->
+													<div class="modal-content">
+														<span class="close">&times;</span>
+														<div id="Original"><h4>Original</h4></div>
 											<ul>
 												<li><a href="{{ url_for('download', filename="Fall2012.csv") }}">Fall2012</a></li>
 												<li><a href="{{ url_for('download', filename="Fall2013.csv") }}">Fall2013</a></li>
@@ -987,6 +989,7 @@ tcpdown.describe()
 												<li><a href="{{ url_for('download', filename="tcpdown50.csv") }}">West TCP Download Top 50%</a></li>
 											</ul>
 										</div>
+											</article>			
 									</section>
 
 				<!-- Footer -->
