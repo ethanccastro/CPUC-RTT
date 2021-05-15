@@ -155,13 +155,13 @@
 										<div class="content">
 											<!-- West RTT server -->
                                             <div class="text-center">
-                                                <iframe id="10Wgraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe>
-                                                <iframe id="20Wgraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe>
-                                                <iframe id="50Wgraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
+                                                <iframe id="10Wgraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/11.embed"></iframe>
+                                                <iframe id="20Wgraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/13.embed"></iframe>
+                                                <iframe id="50Wgraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/15.embed"></iframe>
                                             </div>
 
                                             <div id="westRTT" class="text-center">
-                                                <h5> Click a button to change top percentage of data used </h5>
+                                                <h5> Select percentile </h5>
                                             
                                                 <button id="buttonWTen" type="button"> 10% </button>
                                                 <button id="buttonWTwenty" type="button"> 20% </button>
@@ -171,15 +171,20 @@
 
                                             </div>
 
+											<br>
+											<p>
+												Verizon clocked in the best RTT average for the top 10% with At&t as a close second. However, for the top 20% and 50%, At&t overtakes Verizon as the leading performer with Firstnet, Sprint, and T-Moblie trailing, respectively. Upon calculating the average RTT for each provider, we discovered that the data entered for 2012 from Sprint did not enter the top 50 percentile due to low performance. Another thing that stood out to us was that FirstNet was third in terms of top 20% and 50% but placed last in the top 10 percentile. This can attributed to the lack of records from this provider, considering that the CPUC only began recording their performance in 2020.
+											</p>
+
 											<!-- East RTT server -->
                                             <div class="text-center">
-                                                <iframe id="10Egraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/5.embed"></iframe>
-                                                <iframe id="20Egraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/7.embed"></iframe>
-                                                <iframe id="50Egraph" width="630" height="500" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/9.embed"></iframe>
+                                                <iframe id="10Egraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/5.embed"></iframe>
+                                                <iframe id="20Egraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/7.embed"></iframe>
+                                                <iframe id="50Egraph" width="1000" height="700" frameborder="0" scrolling="no" src="https://chart-studio.plotly.com/~EricG831/9.embed"></iframe>
                                             </div>
 
                                             <div id="eastRTT" class="text-center">
-                                                <h5> Click a button to change top percentage of data used </h5>
+                                                <h5> Select percentile </h5>
                                             
                                                 <button id="buttonETen" type="button"> 10% </button>
                                                 <button id="buttonETwenty" type="button"> 20% </button>
@@ -188,7 +193,10 @@
                                         
 
                                             </div>
-
+											<br>
+											<p>
+												The data recorded for the east server shows that Verizon was the clear dominator placing first in each percentile. At&t placed second across the board, with the remaining carriers interchanging positions for each category. When comparing the average RTT between the east and west server, there is a clear discrepancy in performance with the east server being considerably slower.
+											</p>
                                         </div>
 
 									</section>
@@ -472,15 +480,17 @@ rtt.describe()
 										<div class="content">
 											<!-- West upload/download server -->
                                             <div class="text-center">
-												<!-- wAvg10_TCP -->
-												<iframe id="10WUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/28.embed"></iframe>
-												<!-- wAvg20_TCP -->
-												<iframe id="20WUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/24.embed"></iframe>
-												<!-- wAvg50_TCP -->
-												<iframe id="50WUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/1.embed"></iframe>
+
+												<!-- wAvg10_RTT -->
+												<iframe id="10WUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/28.embed"></iframe>
+												<!-- wAvg20_RTT -->
+												<iframe id="20WUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/24.embed"></iframe>
+												<!-- wAvg50_RTT -->
+												<iframe id="50WUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/1.embed"></iframe>
+
                                             </div>
 											<div id="westTCP" class="text-center">
-												<h5> Click a button to change top percentage of data used </h5>
+												<h5> Select percentile </h5>
 											
 												<button id="buttonWUDTen" type="button"> 10% </button>
 												<button id="buttonWUDTwenty" type="button"> 20% </button>
@@ -488,26 +498,36 @@ rtt.describe()
 											
 
 											</div>
-											
+											<br>
+											<p>
+												Upload and download speeds were measured in kilobits per second (kbps). Overall, At&t outperformed the competition registering an average download speed 48,000 kbps and an upload speed of 12,000 kbps for the west server. Trailing behind the leading carrier, in the following order: Verizon, Sprint, Firstnet, and T-Mobile. The CPUC only began recording data for Firstnet as of 2020.
+											</p>
+
 											<!-- East upload/download server -->
                                             <div class="text-center">
-												<!-- eAvg10_TCP -->
-												<iframe id="10EUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/31.embed"></iframe>
-												<!-- eAvg20_TCP -->
-												<iframe id="20EUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/34.embed"></iframe>
-												<!-- eAvg50_TCP -->
-												<iframe id="50EUDgraph" width="630" height="500" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/37.embed"></iframe>
+
+												<!-- eAvg10_RTT -->
+												<iframe id="10EUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/31.embed"></iframe>
+												<!-- eAvg20_RTT -->
+												<iframe id="20EUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/34.embed"></iframe>
+												<!-- eAvg50_RTT -->
+												<iframe id="50EUDgraph" width="1000" height="700" frameborder="0" scrolling="no" src="//plotly.com/~EricG831/37.embed"></iframe>
+
+
                                             </div>
 											
                                             <div id="eastTCP" class="text-center">
-                                                <h5> Click a button to change top percentage of data used </h5>
+                                                <h5> Select percentile </h5>
                                             
                                                 <button id="buttonEUDTen" type="button"> 10% </button>
                                                 <button id="buttonEUDTwenty" type="button"> 20% </button>
                                                 <button id="buttonEUDFifty" type="button"> 50% </button>
                                             
-
+												<br><br>
                                             </div>
+											<p>
+												Similar to the west server, At&t outperformed the competition registering an average download speed 38,000 kbps and an upload speed of 12,000 kbps for the east server. The ranking for the rest of the competition remained the same as the west server. However, upon further examination, we are able to conclude that the gap between upload/download speeds for the east server was smaller than the data collected for the west, despite the west server clocking in better performance. 
+											</p>
 										</div>
 									</section>
 									<section>
