@@ -37,7 +37,6 @@ The bulk of the project was done with Python and its libraries, complimented wit
 * Seaborn
 * Plotly
 * Pandas
-_For list of files, please refer to the [Documentation](https://rtt-analysis.herokuapp.com/#Data)_
 
 <!-- USAGE EXAMPLES -->
 ## Usage
